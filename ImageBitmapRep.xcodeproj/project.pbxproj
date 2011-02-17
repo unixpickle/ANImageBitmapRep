@@ -1,0 +1,502 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1D3623260D0F684500981E51 /* ImageBitmapRepAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* ImageBitmapRepAppDelegate.m */; };
+		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
+		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
+		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
+		FA5216CF130B21490065A0FE /* ANImageBitmapRep.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5216C3130B21140065A0FE /* ANImageBitmapRep.h */; };
+		FA5216D0130B21490065A0FE /* ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5216C4130B21140065A0FE /* ANImageBitmapRep.m */; };
+		FA5216D2130B21800065A0FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
+		FA5216D3130B21800065A0FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		FA5216DE130B21E80065A0FE /* ColorInverter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5216DC130B21E80065A0FE /* ColorInverter.m */; };
+		FA5216DF130B21E80065A0FE /* ColorInverter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5216DD130B21E80065A0FE /* ColorInverter.xib */; };
+		FA5216E6130B221C0065A0FE /* ColorInverterView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5216E5130B221C0065A0FE /* ColorInverterView.m */; };
+		FA521703130B231B0065A0FE /* libANImageBitmapRep.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA5216CC130B21410065A0FE /* libANImageBitmapRep.a */; };
+		FA52172D130B241D0065A0FE /* inverter.png in Resources */ = {isa = PBXBuildFile; fileRef = FA52172C130B241D0065A0FE /* inverter.png */; };
+		FA521778130B29430065A0FE /* Blur.m in Sources */ = {isa = PBXBuildFile; fileRef = FA521776130B29430065A0FE /* Blur.m */; };
+		FA521779130B29430065A0FE /* Blur.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA521777130B29430065A0FE /* Blur.xib */; };
+		FA521781130B297D0065A0FE /* BlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA521780130B297D0065A0FE /* BlurView.m */; };
+		FA52178E130B2A780065A0FE /* starrynight.png in Resources */ = {isa = PBXBuildFile; fileRef = FA52178D130B2A780065A0FE /* starrynight.png */; };
+		FA5217D5130B38EE0065A0FE /* Noise.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5217D3130B38EE0065A0FE /* Noise.m */; };
+		FA5217D6130B38EE0065A0FE /* Noise.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5217D4130B38EE0065A0FE /* Noise.xib */; };
+		FA52181A130B3DBA0065A0FE /* Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = FA521818130B3DBA0065A0FE /* Draw.m */; };
+		FA52181B130B3DBA0065A0FE /* Draw.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA521819130B3DBA0065A0FE /* Draw.xib */; };
+		FA52181E130B3DCA0065A0FE /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA52181D130B3DCA0065A0FE /* DrawView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FA521701130B23070065A0FE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA5216CB130B21410065A0FE;
+			remoteInfo = ANImageBitmapRep;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1D3623240D0F684500981E51 /* ImageBitmapRepAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageBitmapRepAppDelegate.h; sourceTree = "<group>"; };
+		1D3623250D0F684500981E51 /* ImageBitmapRepAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageBitmapRepAppDelegate.m; sourceTree = "<group>"; };
+		1D6058910D05DD3D006BFB54 /* ImageBitmapRep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageBitmapRep.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		28A0AAE50D9B0CCF005BE974 /* ImageBitmapRep_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageBitmapRep_Prefix.pch; sourceTree = "<group>"; };
+		28AD735F0D9D9599002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8D1107310486CEB800E47090 /* ImageBitmapRep-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ImageBitmapRep-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		FA5216C3130B21140065A0FE /* ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANImageBitmapRep.h; sourceTree = "<group>"; };
+		FA5216C4130B21140065A0FE /* ANImageBitmapRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANImageBitmapRep.m; sourceTree = "<group>"; };
+		FA5216CC130B21410065A0FE /* libANImageBitmapRep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libANImageBitmapRep.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA5216DB130B21E80065A0FE /* ColorInverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorInverter.h; sourceTree = "<group>"; };
+		FA5216DC130B21E80065A0FE /* ColorInverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorInverter.m; sourceTree = "<group>"; };
+		FA5216DD130B21E80065A0FE /* ColorInverter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ColorInverter.xib; path = Classes/ColorInverter.xib; sourceTree = "<group>"; };
+		FA5216E4130B221C0065A0FE /* ColorInverterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorInverterView.h; sourceTree = "<group>"; };
+		FA5216E5130B221C0065A0FE /* ColorInverterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorInverterView.m; sourceTree = "<group>"; };
+		FA52172C130B241D0065A0FE /* inverter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = inverter.png; sourceTree = "<group>"; };
+		FA521775130B29430065A0FE /* Blur.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blur.h; sourceTree = "<group>"; };
+		FA521776130B29430065A0FE /* Blur.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blur.m; sourceTree = "<group>"; };
+		FA521777130B29430065A0FE /* Blur.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Blur.xib; path = Classes/Blur.xib; sourceTree = "<group>"; };
+		FA52177F130B297D0065A0FE /* BlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurView.h; sourceTree = "<group>"; };
+		FA521780130B297D0065A0FE /* BlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurView.m; sourceTree = "<group>"; };
+		FA52178D130B2A780065A0FE /* starrynight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = starrynight.png; sourceTree = "<group>"; };
+		FA5217D2130B38EE0065A0FE /* Noise.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Noise.h; sourceTree = "<group>"; };
+		FA5217D3130B38EE0065A0FE /* Noise.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Noise.m; sourceTree = "<group>"; };
+		FA5217D4130B38EE0065A0FE /* Noise.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Noise.xib; path = Classes/Noise.xib; sourceTree = "<group>"; };
+		FA521817130B3DBA0065A0FE /* Draw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Draw.h; sourceTree = "<group>"; };
+		FA521818130B3DBA0065A0FE /* Draw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Draw.m; sourceTree = "<group>"; };
+		FA521819130B3DBA0065A0FE /* Draw.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Draw.xib; path = Classes/Draw.xib; sourceTree = "<group>"; };
+		FA52181C130B3DCA0065A0FE /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
+		FA52181D130B3DCA0065A0FE /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1D60588F0D05DD3D006BFB54 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
+				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
+				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
+				FA521703130B231B0065A0FE /* libANImageBitmapRep.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA5216CA130B21410065A0FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA5216D2130B21800065A0FE /* CoreGraphics.framework in Frameworks */,
+				FA5216D3130B21800065A0FE /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		080E96DDFE201D6D7F000001 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FA521772130B291C0065A0FE /* Sub-Apps */,
+				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
+				28C286E00D94DF7D0034E888 /* RootViewController.m */,
+				1D3623240D0F684500981E51 /* ImageBitmapRepAppDelegate.h */,
+				1D3623250D0F684500981E51 /* ImageBitmapRepAppDelegate.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1D6058910D05DD3D006BFB54 /* ImageBitmapRep.app */,
+				FA5216CC130B21410065A0FE /* libANImageBitmapRep.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
+			isa = PBXGroup;
+			children = (
+				FA5216C2130B21140065A0FE /* ANImageBitmapRep */,
+				080E96DDFE201D6D7F000001 /* Classes */,
+				29B97315FDCFA39411CA2CEA /* Other Sources */,
+				29B97317FDCFA39411CA2CEA /* Resources */,
+				29B97323FDCFA39411CA2CEA /* Frameworks */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+			);
+			name = CustomTemplate;
+			sourceTree = "<group>";
+		};
+		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				28A0AAE50D9B0CCF005BE974 /* ImageBitmapRep_Prefix.pch */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		29B97317FDCFA39411CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA52172E130B24220065A0FE /* Images */,
+				FA5216E0130B21F00065A0FE /* ViewControllers */,
+				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
+				8D1107310486CEB800E47090 /* ImageBitmapRep-Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
+				1D30AB110D05D00D00671497 /* Foundation.framework */,
+				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA5216C2130B21140065A0FE /* ANImageBitmapRep */ = {
+			isa = PBXGroup;
+			children = (
+				FA5216C3130B21140065A0FE /* ANImageBitmapRep.h */,
+				FA5216C4130B21140065A0FE /* ANImageBitmapRep.m */,
+			);
+			name = ANImageBitmapRep;
+			sourceTree = "<group>";
+		};
+		FA5216E0130B21F00065A0FE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				28F335F01007B36200424DE2 /* RootViewController.xib */,
+				FA5216DD130B21E80065A0FE /* ColorInverter.xib */,
+				FA521777130B29430065A0FE /* Blur.xib */,
+				FA5217D4130B38EE0065A0FE /* Noise.xib */,
+				FA521819130B3DBA0065A0FE /* Draw.xib */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FA52172E130B24220065A0FE /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FA52178D130B2A780065A0FE /* starrynight.png */,
+				FA52172C130B241D0065A0FE /* inverter.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		FA521772130B291C0065A0FE /* Sub-Apps */ = {
+			isa = PBXGroup;
+			children = (
+				FA521816130B3D730065A0FE /* Draw */,
+				FA5217D1130B38E20065A0FE /* Noise */,
+				FA521773130B29240065A0FE /* Inverter */,
+				FA521774130B292C0065A0FE /* Blur */,
+			);
+			name = "Sub-Apps";
+			sourceTree = "<group>";
+		};
+		FA521773130B29240065A0FE /* Inverter */ = {
+			isa = PBXGroup;
+			children = (
+				FA5216DB130B21E80065A0FE /* ColorInverter.h */,
+				FA5216DC130B21E80065A0FE /* ColorInverter.m */,
+				FA5216E4130B221C0065A0FE /* ColorInverterView.h */,
+				FA5216E5130B221C0065A0FE /* ColorInverterView.m */,
+			);
+			name = Inverter;
+			sourceTree = "<group>";
+		};
+		FA521774130B292C0065A0FE /* Blur */ = {
+			isa = PBXGroup;
+			children = (
+				FA521775130B29430065A0FE /* Blur.h */,
+				FA521776130B29430065A0FE /* Blur.m */,
+				FA52177F130B297D0065A0FE /* BlurView.h */,
+				FA521780130B297D0065A0FE /* BlurView.m */,
+			);
+			name = Blur;
+			sourceTree = "<group>";
+		};
+		FA5217D1130B38E20065A0FE /* Noise */ = {
+			isa = PBXGroup;
+			children = (
+				FA5217D2130B38EE0065A0FE /* Noise.h */,
+				FA5217D3130B38EE0065A0FE /* Noise.m */,
+			);
+			name = Noise;
+			sourceTree = "<group>";
+		};
+		FA521816130B3D730065A0FE /* Draw */ = {
+			isa = PBXGroup;
+			children = (
+				FA521817130B3DBA0065A0FE /* Draw.h */,
+				FA521818130B3DBA0065A0FE /* Draw.m */,
+				FA52181C130B3DCA0065A0FE /* DrawView.h */,
+				FA52181D130B3DCA0065A0FE /* DrawView.m */,
+			);
+			name = Draw;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FA5216C8130B21410065A0FE /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA5216CF130B21490065A0FE /* ANImageBitmapRep.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1D6058900D05DD3D006BFB54 /* ImageBitmapRep */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "ImageBitmapRep" */;
+			buildPhases = (
+				1D60588D0D05DD3D006BFB54 /* Resources */,
+				1D60588E0D05DD3D006BFB54 /* Sources */,
+				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FA521702130B23070065A0FE /* PBXTargetDependency */,
+			);
+			name = ImageBitmapRep;
+			productName = ImageBitmapRep;
+			productReference = 1D6058910D05DD3D006BFB54 /* ImageBitmapRep.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA5216CB130B21410065A0FE /* ANImageBitmapRep */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA5216D1130B217C0065A0FE /* Build configuration list for PBXNativeTarget "ANImageBitmapRep" */;
+			buildPhases = (
+				FA5216C8130B21410065A0FE /* Headers */,
+				FA5216C9130B21410065A0FE /* Sources */,
+				FA5216CA130B21410065A0FE /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ANImageBitmapRep;
+			productName = ANImageBitmapRep;
+			productReference = FA5216CC130B21410065A0FE /* libANImageBitmapRep.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ImageBitmapRep" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1D6058900D05DD3D006BFB54 /* ImageBitmapRep */,
+				FA5216CB130B21410065A0FE /* ANImageBitmapRep */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1D60588D0D05DD3D006BFB54 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
+				28F335F11007B36200424DE2 /* RootViewController.xib in Resources */,
+				FA5216DF130B21E80065A0FE /* ColorInverter.xib in Resources */,
+				FA52172D130B241D0065A0FE /* inverter.png in Resources */,
+				FA521779130B29430065A0FE /* Blur.xib in Resources */,
+				FA52178E130B2A780065A0FE /* starrynight.png in Resources */,
+				FA5217D6130B38EE0065A0FE /* Noise.xib in Resources */,
+				FA52181B130B3DBA0065A0FE /* Draw.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1D60588E0D05DD3D006BFB54 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
+				1D3623260D0F684500981E51 /* ImageBitmapRepAppDelegate.m in Sources */,
+				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
+				FA5216DE130B21E80065A0FE /* ColorInverter.m in Sources */,
+				FA5216E6130B221C0065A0FE /* ColorInverterView.m in Sources */,
+				FA521778130B29430065A0FE /* Blur.m in Sources */,
+				FA521781130B297D0065A0FE /* BlurView.m in Sources */,
+				FA5217D5130B38EE0065A0FE /* Noise.m in Sources */,
+				FA52181A130B3DBA0065A0FE /* Draw.m in Sources */,
+				FA52181E130B3DCA0065A0FE /* DrawView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA5216C9130B21410065A0FE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA5216D0130B21490065A0FE /* ANImageBitmapRep.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FA521702130B23070065A0FE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA5216CB130B21410065A0FE /* ANImageBitmapRep */;
+			targetProxy = FA521701130B23070065A0FE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1D6058940D05DD3E006BFB54 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ImageBitmapRep_Prefix.pch;
+				INFOPLIST_FILE = "ImageBitmapRep-Info.plist";
+				PRODUCT_NAME = ImageBitmapRep;
+			};
+			name = Debug;
+		};
+		1D6058950D05DD3E006BFB54 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = ImageBitmapRep_Prefix.pch;
+				INFOPLIST_FILE = "ImageBitmapRep-Info.plist";
+				PRODUCT_NAME = ImageBitmapRep;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		FA5216CD130B21410065A0FE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PREBINDING = NO;
+				PRODUCT_NAME = ANImageBitmapRep;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FA5216CE130B21410065A0FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PREBINDING = NO;
+				PRODUCT_NAME = ANImageBitmapRep;
+				SDKROOT = iphoneos;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "ImageBitmapRep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1D6058940D05DD3E006BFB54 /* Debug */,
+				1D6058950D05DD3E006BFB54 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ImageBitmapRep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA5216D1130B217C0065A0FE /* Build configuration list for PBXNativeTarget "ANImageBitmapRep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA5216CD130B21410065A0FE /* Debug */,
+				FA5216CE130B21410065A0FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
