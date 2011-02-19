@@ -392,6 +392,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	CGContextDrawImage(context, drawRect, [self CGImage]);
 	CGImageRelease(img);
 	CGContextRestoreGState(context);
+
 	[newBitmap setNeedsUpdate];
 	
 	return [newBitmap autorelease];
