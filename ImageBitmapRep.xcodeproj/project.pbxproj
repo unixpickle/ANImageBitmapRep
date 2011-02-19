@@ -33,6 +33,9 @@
 		FA52181A130B3DBA0065A0FE /* Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = FA521818130B3DBA0065A0FE /* Draw.m */; };
 		FA52181B130B3DBA0065A0FE /* Draw.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA521819130B3DBA0065A0FE /* Draw.xib */; };
 		FA52181E130B3DCA0065A0FE /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA52181D130B3DCA0065A0FE /* DrawView.m */; };
+		FA5D8D70130F6D1100E524A8 /* Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D8D6E130F6D1100E524A8 /* Rotation.m */; };
+		FA5D8D71130F6D1100E524A8 /* Rotation.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5D8D6F130F6D1100E524A8 /* Rotation.xib */; };
+		FA5D8D73130F6DC000E524A8 /* rotate_me.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5D8D72130F6DC000E524A8 /* rotate_me.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +85,10 @@
 		FA521819130B3DBA0065A0FE /* Draw.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Draw.xib; path = Classes/Draw.xib; sourceTree = "<group>"; };
 		FA52181C130B3DCA0065A0FE /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		FA52181D130B3DCA0065A0FE /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
+		FA5D8D6D130F6D1100E524A8 /* Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rotation.h; sourceTree = "<group>"; };
+		FA5D8D6E130F6D1100E524A8 /* Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rotation.m; sourceTree = "<group>"; };
+		FA5D8D6F130F6D1100E524A8 /* Rotation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Rotation.xib; path = Classes/Rotation.xib; sourceTree = "<group>"; };
+		FA5D8D72130F6DC000E524A8 /* rotate_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotate_me.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +196,7 @@
 				FA521777130B29430065A0FE /* Blur.xib */,
 				FA5217D4130B38EE0065A0FE /* Noise.xib */,
 				FA521819130B3DBA0065A0FE /* Draw.xib */,
+				FA5D8D6F130F6D1100E524A8 /* Rotation.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -198,6 +206,7 @@
 			children = (
 				FA52178D130B2A780065A0FE /* starrynight.png */,
 				FA52172C130B241D0065A0FE /* inverter.png */,
+				FA5D8D72130F6DC000E524A8 /* rotate_me.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -205,6 +214,7 @@
 		FA521772130B291C0065A0FE /* Sub-Apps */ = {
 			isa = PBXGroup;
 			children = (
+				FA5D8D6C130F6D0200E524A8 /* Rotation */,
 				FA521816130B3D730065A0FE /* Draw */,
 				FA5217D1130B38E20065A0FE /* Noise */,
 				FA521773130B29240065A0FE /* Inverter */,
@@ -253,6 +263,15 @@
 				FA52181D130B3DCA0065A0FE /* DrawView.m */,
 			);
 			name = Draw;
+			sourceTree = "<group>";
+		};
+		FA5D8D6C130F6D0200E524A8 /* Rotation */ = {
+			isa = PBXGroup;
+			children = (
+				FA5D8D6D130F6D1100E524A8 /* Rotation.h */,
+				FA5D8D6E130F6D1100E524A8 /* Rotation.m */,
+			);
+			name = Rotation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,6 +362,8 @@
 				FA52178E130B2A780065A0FE /* starrynight.png in Resources */,
 				FA5217D6130B38EE0065A0FE /* Noise.xib in Resources */,
 				FA52181B130B3DBA0065A0FE /* Draw.xib in Resources */,
+				FA5D8D71130F6D1100E524A8 /* Rotation.xib in Resources */,
+				FA5D8D73130F6DC000E524A8 /* rotate_me.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +384,7 @@
 				FA5217D5130B38EE0065A0FE /* Noise.m in Sources */,
 				FA52181A130B3DBA0065A0FE /* Draw.m in Sources */,
 				FA52181E130B3DCA0065A0FE /* DrawView.m in Sources */,
+				FA5D8D70130F6D1100E524A8 /* Rotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

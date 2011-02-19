@@ -73,6 +73,10 @@
 
 // reverse the colors of the image
 - (void)invertColors;
+// rotate the image, creating a new
+// sized image.
+- (ANImageBitmapRep *)rotate:(float)degrees;
+
 @end
 
 @interface UIImage (ANImageBitmapRep)

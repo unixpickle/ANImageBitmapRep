@@ -11,6 +11,7 @@
 #import "Blur.h"
 #import "Noise.h"
 #import "Draw.h"
+#import "Rotation.h"
 
 @interface RootViewController : UITableViewController {
 	NSArray * views;

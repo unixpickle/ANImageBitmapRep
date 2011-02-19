@@ -8,6 +8,15 @@
 
 #import "ANImageBitmapRep.h"
 
+#define DEGTORAD(x) (x * (M_PI / 180.0f))
+
+static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
+	// get the corner
+	CGPoint p;
+	p.x = cos(DEGTORAD(angle)) * hypotenuse;
+	p.y = sin(DEGTORAD(angle)) * hypotenuse;
+	return p;
+}
 
 @implementation ANImageBitmapRep
 
@@ -337,6 +346,55 @@
 	CGImageRelease(mImg);
 	[irep setNeedsUpdate];
 	return [irep autorelease];
+}
+
+- (ANImageBitmapRep *)rotate:(float)degrees {
+	// rotate the image
+	CGSize size = self.size;
+	CGSize newSize;
+	
+	// calculate new size
+	CGFloat hypotenuse;
+	hypotenuse = sqrt(pow(size.width / 2.0, 2) + pow(size.height / 2.0, 2));
+	
+	CGPoint minP = CGPointMake(10000, 10000);
+	CGPoint maxP = CGPointMake(-10000, -10000);
+	for (float deg = 45.0; deg < 360.0; deg += 90.0) {
+		CGPoint p1 = locationForAngle(deg + degrees, hypotenuse);
+		if (p1.x < minP.x) minP.x = p1.x;
+		if (p1.x > maxP.x) maxP.x = p1.x;
+		if (p1.y < minP.y) minP.y = p1.y;
+		if (p1.y > maxP.y) maxP.y = p1.y;
+	}
+	
+	newSize.width = maxP.x - minP.x;
+	newSize.height = maxP.y - minP.y;
+	
+	hypotenuse = sqrt((pow(newSize.width / 2.0, 2) + pow(newSize.height / 2.0, 2)));
+	CGPoint newCenter;
+	newCenter.x = cos(DEGTORAD((degrees + 45.0))) * hypotenuse;
+	newCenter.y = sin(DEGTORAD((degrees + 45.0))) * hypotenuse;
+	CGPoint offsetCenter;
+	offsetCenter.x = (newSize.width / 2.0) - newCenter.x;
+	offsetCenter.y = (newSize.height / 2.0) - newCenter.y;
+	
+	ANImageBitmapRep * newBitmap = [[ANImageBitmapRep alloc] initWithSize:newSize];
+	
+	CGContextRef context = [newBitmap graphicsContext];
+	CGContextSaveGState(context);
+	CGContextTranslateCTM(context, round(offsetCenter.x), round(offsetCenter.y));
+	
+	CGContextRotateCTM(context, DEGTORAD(degrees));
+	CGRect drawRect;
+	drawRect.size = size;
+	drawRect.origin.x = round((newSize.width / 2) - (size.width / 2));
+	drawRect.origin.y = round((newSize.height / 2) - (size.height / 2));
+	CGContextDrawImage(context, drawRect, [self CGImage]);
+	CGImageRelease(img);
+	CGContextRestoreGState(context);
+	[newBitmap setNeedsUpdate];
+	
+	return [newBitmap autorelease];
 }
 
 - (void)invertColors {
