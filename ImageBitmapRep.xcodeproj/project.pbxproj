@@ -15,7 +15,7 @@
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
-		FA5216CF130B21490065A0FE /* ANImageBitmapRep.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5216C3130B21140065A0FE /* ANImageBitmapRep.h */; };
+		FA5216CF130B21490065A0FE /* ANImageBitmapRep.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5216C3130B21140065A0FE /* ANImageBitmapRep.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA5216D0130B21490065A0FE /* ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5216C4130B21140065A0FE /* ANImageBitmapRep.m */; };
 		FA5216D2130B21800065A0FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		FA5216D3130B21800065A0FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };

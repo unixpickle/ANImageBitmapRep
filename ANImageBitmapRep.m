@@ -339,7 +339,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	CGRect r;
 	r.size = [self size];
 	r.origin.x = -(nRect.origin.x);
-	r.origin.y = -(nRect.origin.y);
+	r.origin.y = -(r.size.height - (nRect.origin.y + nRect.size.height));
 	CGContextRef _ctx = [irep graphicsContext];
 	CGImageRef mImg = [self CGImage];
 	CGContextDrawImage(_ctx, r, mImg);
