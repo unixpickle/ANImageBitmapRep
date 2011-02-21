@@ -274,6 +274,37 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	changed = YES;
 }
 
+- (void)setSizeFillingWithAspect:(CGSize)newSize {
+	CGSize oldSize = [self size];
+	float wratio = oldSize.width / newSize.width;
+	float hratio = oldSize.height / newSize.height;
+	float scaleRatio;
+	if (wratio < hratio) scaleRatio = wratio;
+	else scaleRatio = hratio;
+	scaleRatio = 1.0 / scaleRatio;
+	CGSize newDrawSize = CGSizeMake(oldSize.width * scaleRatio, 
+									oldSize.height * scaleRatio);
+	
+	CGImageRef _img = [self CGImage];
+	
+	CGContextRef _ctx = [ANImageBitmapRep CreateARGBBitmapContextWithSize:newSize];
+	CGContextRelease(ctx);
+	free(bitmapData);
+	// image will still be retained.
+	
+	ctx = _ctx;
+	bitmapData = CGBitmapContextGetData(_ctx);
+	
+	CGContextClearRect(ctx, CGRectMake(0, 0, newSize.width, newSize.height));
+	CGContextDrawImage(ctx, CGRectMake(newSize.width / 2 - (newDrawSize.width / 2),
+									   newSize.height / 2 - (newDrawSize.height / 2),
+									   newDrawSize.width, newDrawSize.height), _img);
+	
+	CGImageRelease(_img);
+	
+	changed = YES;
+}
+
 - (void)setBrightness:(float)percent {
 	if (percent > 1) {
 		int width, height;
@@ -481,6 +512,15 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	ANImageBitmapRep * irep = [self imageBitmapRep];
 	[irep setSizeKeepingAspectRatio:sz];
+	UIImage * img = [[irep image] retain];
+	[pool drain];
+	return [img autorelease];
+}
+
+- (UIImage *)fillAspectWithSize:(CGSize)sz {
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	ANImageBitmapRep * irep = [self imageBitmapRep];
+	[irep setSizeFillingWithAspect:sz];
 	UIImage * img = [[irep image] retain];
 	[pool drain];
 	return [img autorelease];

@@ -63,6 +63,9 @@
 - (void)setSize:(CGSize)size;
 // scale, keeping the aspect
 - (void)setSizeKeepingAspectRatio:(CGSize)newSize;
+// scale, keeping the aspect
+// but filling the frame
+- (void)setSizeFillingWithAspect:(CGSize)newSize;
 // get the size of the image.
 // reduce the calling of this
 // method!
@@ -86,5 +89,6 @@
 - (ANImageBitmapRep *)imageBitmapRep;
 - (UIImage *)scaleToSize:(CGSize)sz;
 - (UIImage *)aspectScaleToSize:(CGSize)sz;
+- (UIImage *)fillAspectWithSize:(CGSize)sz;
 
 @end
