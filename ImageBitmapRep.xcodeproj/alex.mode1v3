@@ -278,14 +278,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>20</integer>
-									<integer>19</integer>
-									<integer>18</integer>
+									<integer>3</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 127}, {186, 445}}</string>
+							<string>{{0, 0}, {186, 445}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -322,7 +321,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>RootViewController.m</string>
+								<string>ANImageBitmapRep.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -330,11 +329,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>RootViewController.m</string>
+										<string>ANImageBitmapRep.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>FA02C23B1312DEEC001D77B8</string>
+										<string>FA02C2451312E18D001D77B8</string>
 										<key>history</key>
 										<array>
 											<string>FA521737130B24830065A0FE</string>
@@ -355,12 +354,12 @@
 											<string>FA5D8D81130F6E2400E524A8</string>
 											<string>FA5D8D82130F6E2400E524A8</string>
 											<string>FA5D8D91130F6E6100E524A8</string>
-											<string>FA02C1E71312DBBF001D77B8</string>
-											<string>FA02C2021312DDF6001D77B8</string>
 											<string>FA02C2031312DDF6001D77B8</string>
 											<string>FA02C2041312DDF6001D77B8</string>
 											<string>FA02C2051312DDF6001D77B8</string>
-											<string>FA02C22D1312DE6B001D77B8</string>
+											<string>FA02C23C1312E133001D77B8</string>
+											<string>FA02C23D1312E133001D77B8</string>
+											<string>FA02C23E1312E133001D77B8</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -561,8 +560,8 @@
 		<string>FA02C2101312DDF6001D77B8</string>
 		<string>FA02C2111312DDF6001D77B8</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>FA5216EB130B22C90065A0FE</string>
 		<string>1C78EAAD065D492600B07095</string>
+		<string>FA5216EB130B22C90065A0FE</string>
 		<string>/Users/alex/xCode/git/ImageBitmapRep/ImageBitmapRep.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -945,7 +944,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

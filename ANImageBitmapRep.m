@@ -477,5 +477,13 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	[pool drain];
 	return [img autorelease];
 }
+- (UIImage *)aspectScaleToSize:(CGSize)sz {
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	ANImageBitmapRep * irep = [self imageBitmapRep];
+	[irep setSizeKeepingAspectRatio:sz];
+	UIImage * img = [[irep image] retain];
+	[pool drain];
+	return [img autorelease];
+}
 
 @end

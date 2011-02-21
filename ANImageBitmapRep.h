@@ -85,5 +85,6 @@
 
 - (ANImageBitmapRep *)imageBitmapRep;
 - (UIImage *)scaleToSize:(CGSize)sz;
+- (UIImage *)aspectScaleToSize:(CGSize)sz;
 
 @end
