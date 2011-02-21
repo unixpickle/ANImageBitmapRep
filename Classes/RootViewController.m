@@ -24,6 +24,7 @@
 			  NSStringFromClass([Draw class]),
 			  NSStringFromClass([Rotation class]), nil] retain];
 	self.title = @"Demos";
+	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }

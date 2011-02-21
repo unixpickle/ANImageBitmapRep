@@ -61,6 +61,8 @@
 
 // scale the image to size.
 - (void)setSize:(CGSize)size;
+// scale, keeping the aspect
+- (void)setSizeKeepingAspectRatio:(CGSize)newSize;
 // get the size of the image.
 // reduce the calling of this
 // method!

@@ -243,6 +243,37 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	changed = YES;
 }
 
+- (void)setSizeKeepingAspectRatio:(CGSize)newSize {
+	CGSize oldSize = [self size];
+	float wratio = oldSize.width / newSize.width;
+	float hratio = oldSize.height / newSize.height;
+	float scaleRatio;
+	if (wratio > hratio) scaleRatio = wratio;
+	else scaleRatio = hratio;
+	scaleRatio = 1.0 / scaleRatio;
+	CGSize newDrawSize = CGSizeMake(oldSize.width * scaleRatio, 
+									oldSize.height * scaleRatio);
+	
+	CGImageRef _img = [self CGImage];
+	
+	CGContextRef _ctx = [ANImageBitmapRep CreateARGBBitmapContextWithSize:newSize];
+	CGContextRelease(ctx);
+	free(bitmapData);
+	// image will still be retained.
+	
+	ctx = _ctx;
+	bitmapData = CGBitmapContextGetData(_ctx);
+	
+	CGContextClearRect(ctx, CGRectMake(0, 0, newSize.width, newSize.height));
+	CGContextDrawImage(ctx, CGRectMake(newSize.width / 2 - (newDrawSize.width / 2),
+									   newSize.height / 2 - (newDrawSize.height / 2),
+									   newDrawSize.width, newDrawSize.height), _img);
+	
+	CGImageRelease(_img);
+	
+	changed = YES;
+}
+
 - (void)setBrightness:(float)percent {
 	if (percent > 1) {
 		int width, height;
@@ -359,7 +390,15 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	
 	CGPoint minP = CGPointMake(10000, 10000);
 	CGPoint maxP = CGPointMake(-10000, -10000);
-	for (float deg = 45.0; deg < 360.0; deg += 90.0) {
+	
+	float firstAngle = atan2(size.height / 2.0, size.width / 2.0);
+	float secondAngle = atan2(size.height / 2.0, size.width / -2.0);
+	float thirdAngle = atan2(size.height / -2.0, size.width / -2.0);
+	float fourthAngle = atan2(size.height / -2.0, size.width / 2.0);
+	float angles[4] = {firstAngle, secondAngle, thirdAngle, fourthAngle};
+	
+	for (int i = 0; i < 4; i++) {
+		float deg = angles[i] * (180.0f / M_PI);
 		CGPoint p1 = locationForAngle(deg + degrees, hypotenuse);
 		if (p1.x < minP.x) minP.x = p1.x;
 		if (p1.x > maxP.x) maxP.x = p1.x;
@@ -372,11 +411,13 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	
 	hypotenuse = sqrt((pow(newSize.width / 2.0, 2) + pow(newSize.height / 2.0, 2)));
 	CGPoint newCenter;
-	newCenter.x = cos(DEGTORAD((degrees + 45.0))) * hypotenuse;
-	newCenter.y = sin(DEGTORAD((degrees + 45.0))) * hypotenuse;
+	float addAngle = atan2(newSize.height / 2.0, newSize.width / 2.0) * (180.0f / M_PI);
+	newCenter.x = cos(DEGTORAD((degrees + addAngle))) * hypotenuse;
+	newCenter.y = sin(DEGTORAD((degrees + addAngle))) * hypotenuse;
 	CGPoint offsetCenter;
 	offsetCenter.x = (newSize.width / 2.0) - newCenter.x;
 	offsetCenter.y = (newSize.height / 2.0) - newCenter.y;
+	
 	
 	ANImageBitmapRep * newBitmap = [[ANImageBitmapRep alloc] initWithSize:newSize];
 	
@@ -392,7 +433,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	CGContextDrawImage(context, drawRect, [self CGImage]);
 	CGImageRelease(img);
 	CGContextRestoreGState(context);
-
+	
 	[newBitmap setNeedsUpdate];
 	
 	return [newBitmap autorelease];
