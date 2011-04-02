@@ -135,6 +135,10 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	if (self = [super init]) {
 		// load the image into the context
 		ctx = [ANImageBitmapRep CreateARGBBitmapContextWithSize:sz];
+		if (ctx == NULL) {
+			[super dealloc];
+			return nil;
+		}
 		changed = YES;
 		bitmapData = CGBitmapContextGetData(ctx);
 	}
@@ -143,6 +147,10 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 - (id)initWithImage:(UIImage *)_img {
 	if (self = [super init]) {
 		// load the image into the context
+		if (!_img) {
+			[super dealloc];
+			return nil;
+		}
 		img = [_img CGImage];
 		CGImageRetain(img);
 		ctx = [ANImageBitmapRep CreateARGBBitmapContextWithImage:img];
@@ -270,6 +278,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 									   newDrawSize.width, newDrawSize.height), _img);
 	
 	CGImageRelease(_img);
+	_img = nil;
 	
 	changed = YES;
 }
