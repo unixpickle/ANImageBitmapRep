@@ -13,8 +13,8 @@
 static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	// get the corner
 	CGPoint p;
-	p.x = cos(DEGTORAD(angle)) * hypotenuse;
-	p.y = sin(DEGTORAD(angle)) * hypotenuse;
+	p.x = (CGFloat)cos((double)DEGTORAD(angle)) * hypotenuse;
+	p.y = (CGFloat)sin((double)DEGTORAD(angle)) * hypotenuse;
 	return p;
 }
 
@@ -132,7 +132,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 }
 
 - (id)initWithSize:(CGSize)sz {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		// load the image into the context
 		ctx = [ANImageBitmapRep CreateARGBBitmapContextWithSize:sz];
 		if (ctx == NULL) {
@@ -145,7 +145,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	return self;
 }
 - (id)initWithImage:(UIImage *)_img {
-	if (self = [super init]) {
+	if ((self = [super init])) {
 		// load the image into the context
 		if (!_img) {
 			[super dealloc];
@@ -232,7 +232,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 }
 
 - (void)setSize:(CGSize)_size {
-	CGSize size = CGSizeMake(round(_size.width), round(_size.height));
+	CGSize size = CGSizeMake((CGFloat)round((double)_size.width), (CGFloat)round((double)_size.height));
 	CGImageRef _img = [self CGImage];
 	
 	CGContextRef _ctx = [ANImageBitmapRep CreateARGBBitmapContextWithSize:size];
@@ -256,9 +256,13 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	float wratio = oldSize.width / newSize.width;
 	float hratio = oldSize.height / newSize.height;
 	float scaleRatio;
-	if (wratio > hratio) scaleRatio = wratio;
-	else scaleRatio = hratio;
-	scaleRatio = 1.0 / scaleRatio;
+	if (wratio > hratio) {
+		scaleRatio = wratio;
+	} else {
+		scaleRatio = hratio;
+	}
+	scaleRatio = 1.0f / scaleRatio;
+	
 	CGSize newDrawSize = CGSizeMake(oldSize.width * scaleRatio, 
 									oldSize.height * scaleRatio);
 	
@@ -288,9 +292,13 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	float wratio = oldSize.width / newSize.width;
 	float hratio = oldSize.height / newSize.height;
 	float scaleRatio;
-	if (wratio < hratio) scaleRatio = wratio;
-	else scaleRatio = hratio;
-	scaleRatio = 1.0 / scaleRatio;
+	if (wratio < hratio) {
+		scaleRatio = wratio;
+	} else {
+		scaleRatio = hratio;
+	}
+	scaleRatio = 1.0f / scaleRatio;
+	
 	CGSize newDrawSize = CGSizeMake(oldSize.width * scaleRatio, 
 									oldSize.height * scaleRatio);
 	
@@ -331,7 +339,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	}
 	CGSize s = [self size];
 	CGContextSaveGState(ctx);
-	CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:0 green:0 blue:0 alpha:(1.0 - percent)] CGColor]);
+	CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:(1.0f - percent)] CGColor]);
 	CGContextFillRect(ctx, CGRectMake(0, 0, s.width, s.height));
 	CGContextRestoreGState(ctx);
 }
@@ -391,7 +399,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	
 	CGContextSaveGState(context);
 	CGContextTranslateCTM(context, 0, CGBitmapContextGetHeight(context));
-	CGContextScaleCTM(context, 1.0, -1.0);
+	CGContextScaleCTM(context, 1.0f, -1.0f);
 	CGContextDrawImage(context, CGRectMake(r.origin.x, 
 										   (CGBitmapContextGetHeight(context) - r.origin.y) - r.size.height,
 										   r.size.width, r.size.height),
@@ -426,19 +434,19 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	
 	// calculate new size
 	CGFloat hypotenuse;
-	hypotenuse = sqrt(pow(size.width / 2.0, 2) + pow(size.height / 2.0, 2));
+	hypotenuse = (CGFloat)sqrt(pow((double)size.width / 2.0, 2.0) + pow((double)size.height / 2.0, 2.0));
 	
 	CGPoint minP = CGPointMake(10000, 10000);
 	CGPoint maxP = CGPointMake(-10000, -10000);
 	
-	float firstAngle = atan2(size.height / 2.0, size.width / 2.0);
-	float secondAngle = atan2(size.height / 2.0, size.width / -2.0);
-	float thirdAngle = atan2(size.height / -2.0, size.width / -2.0);
-	float fourthAngle = atan2(size.height / -2.0, size.width / 2.0);
+	float firstAngle = (float)atan2((double)size.height / 2.0, (double)size.width / 2.0);
+	float secondAngle = (float)atan2((double)size.height / 2.0, (double)size.width / -2.0);
+	float thirdAngle = (float)atan2((double)size.height / -2.0, (double)size.width / -2.0);
+	float fourthAngle = (float)atan2((double)size.height / -2.0, (double)size.width / 2.0);
 	float angles[4] = {firstAngle, secondAngle, thirdAngle, fourthAngle};
 	
 	for (int i = 0; i < 4; i++) {
-		float deg = angles[i] * (180.0f / M_PI);
+		float deg = angles[i] * (float)(180.0f / M_PI);
 		CGPoint p1 = locationForAngle(deg + degrees, hypotenuse);
 		if (p1.x < minP.x) minP.x = p1.x;
 		if (p1.x > maxP.x) maxP.x = p1.x;
@@ -449,9 +457,9 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	newSize.width = maxP.x - minP.x;
 	newSize.height = maxP.y - minP.y;
 	
-	hypotenuse = sqrt((pow(newSize.width / 2.0, 2) + pow(newSize.height / 2.0, 2)));
+	hypotenuse = (CGFloat)sqrt((pow(newSize.width / 2.0, 2) + pow(newSize.height / 2.0, 2)));
 	CGPoint newCenter;
-	float addAngle = atan2(newSize.height / 2.0, newSize.width / 2.0) * (180.0f / M_PI);
+	float addAngle = (float)atan2((double)newSize.height / 2, (double)newSize.width / 2) * (float)(180.0f / M_PI);
 	newCenter.x = cos(DEGTORAD((degrees + addAngle))) * hypotenuse;
 	newCenter.y = sin(DEGTORAD((degrees + addAngle))) * hypotenuse;
 	CGPoint offsetCenter;
@@ -465,11 +473,11 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	CGContextSaveGState(context);
 	CGContextTranslateCTM(context, round(offsetCenter.x), round(offsetCenter.y));
 	
-	CGContextRotateCTM(context, DEGTORAD(degrees));
+	CGContextRotateCTM(context, (CGFloat)DEGTORAD(degrees));
 	CGRect drawRect;
 	drawRect.size = size;
-	drawRect.origin.x = round((newSize.width / 2) - (size.width / 2));
-	drawRect.origin.y = round((newSize.height / 2) - (size.height / 2));
+	drawRect.origin.x = (CGFloat)round((newSize.width / 2) - (size.width / 2));
+	drawRect.origin.y = (CGFloat)round((newSize.height / 2) - (size.height / 2));
 	CGContextDrawImage(context, drawRect, [self CGImage]);
 	CGImageRelease(img);
 	CGContextRestoreGState(context);
