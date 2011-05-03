@@ -18,11 +18,18 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	return p;
 }
 
+@interface ANImageBitmapRep (private)
+
++ (CGContextRef)newARGBBitmapContextWithSize:(CGSize)size;
++ (CGContextRef)newARGBBitmapContextWithImage:(CGImageRef)image;
+
+@end
+
 @implementation ANImageBitmapRep
 
 #pragma mark Initialization
 
-+ (CGContextRef)CreateARGBBitmapContextWithSize:(CGSize)size {
++ (CGContextRef)newARGBBitmapContextWithSize:(CGSize)size {
 	CGContextRef context = NULL;
     CGColorSpaceRef colorSpace;
     void * bitmapData;
@@ -74,7 +81,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	
     return context;	
 }
-+ (CGContextRef)CreateARGBBitmapContextWithImage:(CGImageRef)image {
++ (CGContextRef)newARGBBitmapContextWithImage:(CGImageRef)image {
 	CGContextRef context = NULL;
     CGColorSpaceRef colorSpace;
     void * bitmapData;
@@ -131,10 +138,10 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
     return context;	
 }
 
-- (id)initWithSize:(CGSize)sz {
+- (id)initWithSize:(CGSize)size {
 	if ((self = [super init])) {
 		// load the image into the context
-		ctx = [ANImageBitmapRep CreateARGBBitmapContextWithSize:sz];
+		ctx = [ANImageBitmapRep newARGBBitmapContextWithSize:size];
 		if (ctx == NULL) {
 			[super dealloc];
 			return nil;
@@ -144,16 +151,15 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	}
 	return self;
 }
-- (id)initWithImage:(UIImage *)_img {
+- (id)initWithImage:(UIImage *)anImage {
 	if ((self = [super init])) {
 		// load the image into the context
-		if (!_img) {
+		if (!anImage) {
 			[super dealloc];
 			return nil;
 		}
-		img = [_img CGImage];
-		CGImageRetain(img);
-		ctx = [ANImageBitmapRep CreateARGBBitmapContextWithImage:img];
+		img = CGImageRetain([anImage CGImage]);
+		ctx = [ANImageBitmapRep newARGBBitmapContextWithImage:img];
 		changed = NO;
 		bitmapData = CGBitmapContextGetData(ctx);
 	}
@@ -183,18 +189,19 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 }
 - (CGImageRef)CGImage {
 	if (!changed) {
-		// their job to release it
-		return CGImageRetain(img);
+		// container retains the image, and will release it
+		// when the autorelease pool is drained.
+		CGImageContainer * container = [CGImageContainer imageContainerWithImage:img];
+		return [container image];
 	} else {
 		CGImageRelease(img);
 		img = CGBitmapContextCreateImage(ctx);
 		changed = NO;
-		return CGImageRetain(img);
+		return [[CGImageContainer imageContainerWithImage:img] image];
 	}
 }
 - (UIImage *)image {
 	CGImageRef _img = [self CGImage];
-	CGImageRelease(_img);
 	// I don't know how UIImage deals with these things.
 	return [UIImage imageWithCGImage:_img];
 }
@@ -215,7 +222,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	if (pxl[3] > 1) pxl[3] = 1;
 }
 
-- (void)get255Pixel:(char *)pxl atX:(int)x y:(int)y {
+- (void)get255Pixel:(unsigned char *)pxl atX:(int)x y:(int)y {
 	CGSize s = [self size];
 	changed = YES;
 	unsigned char * c = (unsigned char *)&bitmapData[((y * (int)(s.width))+x) * 4];
@@ -231,22 +238,19 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	changed = YES;
 }
 
-- (void)setSize:(CGSize)_size {
-	CGSize size = CGSizeMake((CGFloat)round((double)_size.width), (CGFloat)round((double)_size.height));
+- (void)setSize:(CGSize)theSize {
+	CGSize size = CGSizeMake((CGFloat)round((double)theSize.width), (CGFloat)round((double)theSize.height));
 	CGImageRef _img = [self CGImage];
 	
-	CGContextRef _ctx = [ANImageBitmapRep CreateARGBBitmapContextWithSize:size];
+	CGContextRef _ctx = [ANImageBitmapRep newARGBBitmapContextWithSize:size];
 	CGContextRelease(ctx);
 	free(bitmapData);
-	// image will still be retained.
 	
 	ctx = _ctx;
 	bitmapData = CGBitmapContextGetData(_ctx);
 	
 	CGContextClearRect(ctx, CGRectMake(0, 0, size.width, size.height));
 	CGContextDrawImage(ctx, CGRectMake(0, 0, size.width, size.height), _img);
-	
-	CGImageRelease(_img);
 	
 	changed = YES;
 }
@@ -268,7 +272,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	
 	CGImageRef _img = [self CGImage];
 	
-	CGContextRef _ctx = [ANImageBitmapRep CreateARGBBitmapContextWithSize:newSize];
+	CGContextRef _ctx = [ANImageBitmapRep newARGBBitmapContextWithSize:newSize];
 	CGContextRelease(ctx);
 	free(bitmapData);
 	// image will still be retained.
@@ -280,9 +284,6 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	CGContextDrawImage(ctx, CGRectMake(newSize.width / 2 - (newDrawSize.width / 2),
 									   newSize.height / 2 - (newDrawSize.height / 2),
 									   newDrawSize.width, newDrawSize.height), _img);
-	
-	CGImageRelease(_img);
-	_img = nil;
 	
 	changed = YES;
 }
@@ -304,7 +305,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	
 	CGImageRef _img = [self CGImage];
 	
-	CGContextRef _ctx = [ANImageBitmapRep CreateARGBBitmapContextWithSize:newSize];
+	CGContextRef _ctx = [ANImageBitmapRep newARGBBitmapContextWithSize:newSize];
 	CGContextRelease(ctx);
 	free(bitmapData);
 	// image will still be retained.
@@ -316,9 +317,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	CGContextDrawImage(ctx, CGRectMake(newSize.width / 2 - (newDrawSize.width / 2),
 									   newSize.height / 2 - (newDrawSize.height / 2),
 									   newDrawSize.width, newDrawSize.height), _img);
-	
-	CGImageRelease(_img);
-	
+		
 	changed = YES;
 }
 
@@ -375,7 +374,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 }
 
 
-- (void)set255Pixel:(char *)pxl atX:(int)x y:(int)y {
+- (void)set255Pixel:(unsigned char *)pxl atX:(int)x y:(int)y {
 	CGSize s = [self size];
 	changed = YES;
 	unsigned char * c = (unsigned char *)&bitmapData[((y * (int)(s.width))+x) * 4];
@@ -405,8 +404,6 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 										   r.size.width, r.size.height),
 					   image);
 	CGContextRestoreGState(context);
-	
-	CGImageRelease(image);
 }
 
 
@@ -420,9 +417,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	r.origin.x = -(nRect.origin.x);
 	r.origin.y = -(r.size.height - (nRect.origin.y + nRect.size.height));
 	CGContextRef _ctx = [irep graphicsContext];
-	CGImageRef mImg = [self CGImage];
-	CGContextDrawImage(_ctx, r, mImg);
-	CGImageRelease(mImg);
+	CGContextDrawImage(_ctx, r, [self CGImage]);
 	[irep setNeedsUpdate];
 	return [irep autorelease];
 }
@@ -479,7 +474,6 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	drawRect.origin.x = (CGFloat)round((newSize.width / 2) - (size.width / 2));
 	drawRect.origin.y = (CGFloat)round((newSize.height / 2) - (size.height / 2));
 	CGContextDrawImage(context, drawRect, [self CGImage]);
-	CGImageRelease(img);
 	CGContextRestoreGState(context);
 	
 	[newBitmap setNeedsUpdate];

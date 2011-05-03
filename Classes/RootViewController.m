@@ -25,27 +25,6 @@
 			  NSStringFromClass([Rotation class]), nil] retain];
 	self.title = @"Demos";
 	
-	UIImage * balloon = [UIImage imageNamed:@"Balloon_2@2x-1.png"];
-	ANImageBitmapRep * rep = [balloon imageBitmapRep];
-	for (int y = 0; y < rep.size.height; y++) {
-		for (int x = 0; x < rep.size.width; x++) {
-			CGFloat color[4];
-			[rep getPixel:color atX:x y:y];
-			// replace 230.0f with 255.0f for darker.
-			// red tint
-			color[0] *= 0.2;
-			// green tint
-			color[1] *= 0.9;
-			// blue tint
-			color[2] *= 0.2;
-			[rep setPixel:color atX:x y:y];
-		}
-	}
-	NSString * path = [NSString stringWithFormat:@"%@/Documents/test.png", NSHomeDirectory()];
-	[UIImagePNGRepresentation([rep image]) writeToFile:path
-											atomically:YES];
-	NSLog(@"%@", path);
-	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -165,6 +144,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController * vc = [[NSClassFromString([views objectAtIndex:indexPath.row]) alloc] initWithNibName:nil bundle:nil];
 	[self.navigationController pushViewController:vc animated:YES];
+	[vc release];
 }
 
 
