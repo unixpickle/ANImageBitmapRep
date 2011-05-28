@@ -455,18 +455,17 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	hypotenuse = (CGFloat)sqrt((pow(newSize.width / 2.0, 2) + pow(newSize.height / 2.0, 2)));
 	CGPoint newCenter;
 	float addAngle = (float)atan2((double)newSize.height / 2, (double)newSize.width / 2) * (float)(180.0f / M_PI);
-	newCenter.x = cos(DEGTORAD((degrees + addAngle))) * hypotenuse;
-	newCenter.y = sin(DEGTORAD((degrees + addAngle))) * hypotenuse;
+	newCenter.x = cos((float)DEGTORAD((degrees + addAngle))) * hypotenuse;
+	newCenter.y = sin((float)DEGTORAD((degrees + addAngle))) * hypotenuse;
 	CGPoint offsetCenter;
-	offsetCenter.x = (newSize.width / 2.0) - newCenter.x;
-	offsetCenter.y = (newSize.height / 2.0) - newCenter.y;
-	
+	offsetCenter.x = (float)((float)newSize.width / 2.0f) - (float)newCenter.x;
+	offsetCenter.y = (float)((float)newSize.height / 2.0f) - (float)newCenter.y;
 	
 	ANImageBitmapRep * newBitmap = [[ANImageBitmapRep alloc] initWithSize:newSize];
 	
 	CGContextRef context = [newBitmap graphicsContext];
 	CGContextSaveGState(context);
-	CGContextTranslateCTM(context, round(offsetCenter.x), round(offsetCenter.y));
+	CGContextTranslateCTM(context, (float)round((float)offsetCenter.x), (float)round((float)offsetCenter.y));
 	
 	CGContextRotateCTM(context, (CGFloat)DEGTORAD(degrees));
 	CGRect drawRect;
