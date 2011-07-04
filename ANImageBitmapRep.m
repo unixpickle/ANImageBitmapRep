@@ -18,130 +18,12 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	return p;
 }
 
-@interface ANImageBitmapRep (private)
-
-+ (CGContextRef)newARGBBitmapContextWithSize:(CGSize)size;
-+ (CGContextRef)newARGBBitmapContextWithImage:(CGImageRef)image;
-
-@end
-
 @implementation ANImageBitmapRep
-
-#pragma mark Initialization
-
-+ (CGContextRef)newARGBBitmapContextWithSize:(CGSize)size {
-	CGContextRef context = NULL;
-    CGColorSpaceRef colorSpace;
-    void * bitmapData;
-    int bitmapByteCount;
-    int bitmapBytesPerRow;
-	
-	// Get image width, height. We'll use the entire image.
-    size_t pixelsWide = size.width;
-    size_t pixelsHigh = size.height;
-	
-    bitmapBytesPerRow = (pixelsWide * 4);
-    bitmapByteCount = (bitmapBytesPerRow * pixelsHigh);
-	
-    // Use the generic RGB color space.
-    colorSpace = CGColorSpaceCreateDeviceRGB();
-    if (colorSpace == NULL) {
-        fprintf(stderr, "Error allocating color space\n");
-        return NULL;
-    }
-	
-	// allocate
-    bitmapData = malloc(bitmapByteCount);
-    if (bitmapData == NULL) {
-		NSLog(@"Malloc failed which is too bad.  I was hoping to use this memory.");
-		CGColorSpaceRelease(colorSpace);
-		// even though CGContextRef technically is not a pointer,
-		// it's typedef probably is and it is a scalar anyway.
-        return NULL;
-    }
-	
-    // Create the bitmap context. We are
-	// setting up the image as an ARGB (0-255 per component)
-	// 4-byte per/pixel.
-    context = CGBitmapContextCreate (bitmapData,
-									 pixelsWide,
-									 pixelsHigh,
-									 8,
-									 bitmapBytesPerRow,
-									 colorSpace,
-									 kCGImageAlphaPremultipliedFirst);
-	if (context == NULL) {
-		free (bitmapData);
-		NSLog(@"Failed to create bitmap!");
-    }
-	
-	CGContextClearRect(context, CGRectMake(0, 0, size.width, size.height));
-	
-    CGColorSpaceRelease(colorSpace);
-	
-    return context;	
-}
-+ (CGContextRef)newARGBBitmapContextWithImage:(CGImageRef)image {
-	CGContextRef context = NULL;
-    CGColorSpaceRef colorSpace;
-    void * bitmapData;
-    int bitmapByteCount;
-    int bitmapBytesPerRow;
-	
-	// Get image width, height. We'll use the entire image.
-    size_t pixelsWide = CGImageGetWidth(image);
-    size_t pixelsHigh = CGImageGetHeight(image);
-	
-    bitmapBytesPerRow = (pixelsWide * 4);
-    bitmapByteCount = (bitmapBytesPerRow * pixelsHigh);
-	
-    // Use the generic RGB color space.
-    colorSpace = CGColorSpaceCreateDeviceRGB();
-    if (colorSpace == NULL) {
-        fprintf(stderr, "Error allocating color space\n");
-        return NULL;
-    }
-	
-	// allocate
-    bitmapData = malloc(bitmapByteCount);
-    if (bitmapData == NULL) {
-		NSLog(@"Malloc failed which is too bad.  I was hoping to use this memory.");
-		CGColorSpaceRelease(colorSpace);
-		// even though CGContextRef technically is not a pointer,
-		// it's typedef probably is and it is a scalar anyway.
-        return NULL;
-    }
-	
-    // Create the bitmap context. We are
-	// setting up the image as an ARGB (0-255 per component)
-	// 4-byte per/pixel.
-    context = CGBitmapContextCreate (bitmapData,
-									 pixelsWide,
-									 pixelsHigh,
-									 8,      // bits per component
-									 bitmapBytesPerRow,
-									 colorSpace,
-									 kCGImageAlphaPremultipliedFirst);
-	if (context == NULL) {
-		free (bitmapData);
-		NSLog(@"Failed to create bitmap!");
-    }
-	
-	// draw the image on the context.
-	// CGContextTranslateCTM(context, 0, CGImageGetHeight(image));
-	// CGContextScaleCTM(context, 1.0, -1.0);
-	CGContextClearRect(context, CGRectMake(0, 0, CGImageGetWidth(image), CGImageGetHeight(image)));
-	CGContextDrawImage(context, CGRectMake(0, 0, CGImageGetWidth(image), CGImageGetHeight(image)), image);
-	
-    CGColorSpaceRelease(colorSpace);
-	
-    return context;	
-}
 
 - (id)initWithSize:(CGSize)size {
 	if ((self = [super init])) {
 		// load the image into the context
-		ctx = [ANImageBitmapRep newARGBBitmapContextWithSize:size];
+		ctx = [CGContextCreator newARGBBitmapContextWithSize:size];
 		if (ctx == NULL) {
 			[super dealloc];
 			return nil;
@@ -151,6 +33,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	}
 	return self;
 }
+
 - (id)initWithImage:(UIImage *)anImage {
 	if ((self = [super init])) {
 		// load the image into the context
@@ -159,15 +42,17 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 			return nil;
 		}
 		img = CGImageRetain([anImage CGImage]);
-		ctx = [ANImageBitmapRep newARGBBitmapContextWithImage:img];
+		ctx = [CGContextCreator newARGBBitmapContextWithImage:img];
 		changed = NO;
 		bitmapData = CGBitmapContextGetData(ctx);
 	}
 	return self;
 }
+
 + (id)imageBitmapRepWithImage:(UIImage *)_img {
 	return [[[ANImageBitmapRep alloc] initWithImage:_img] autorelease];
 }
+
 + (id)imageBitmapRepNamed:(NSString *)_resourceName {
 	// we wanna use an autorelease pool here
 	// to make sure we don't retain
@@ -187,6 +72,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 - (CGContextRef)graphicsContext {
 	return ctx;
 }
+
 - (CGImageRef)CGImage {
 	if (!changed) {
 		// container retains the image, and will release it
@@ -200,6 +86,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 		return [[CGImageContainer imageContainerWithImage:img] image];
 	}
 }
+
 - (UIImage *)image {
 	CGImageRef _img = [self CGImage];
 	// I don't know how UIImage deals with these things.
@@ -342,6 +229,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	CGContextFillRect(ctx, CGRectMake(0, 0, s.width, s.height));
 	CGContextRestoreGState(ctx);
 }
+
 - (void)setQuality:(float)percent {
 	CGSize s = [self size];
 	CGSize back = [self size];
@@ -406,8 +294,6 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	CGContextRestoreGState(context);
 }
 
-
-
 #pragma mark Newbie Features
 
 - (ANImageBitmapRep *)cropWithFrame:(CGRect)nRect {
@@ -434,13 +320,18 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	CGPoint minP = CGPointMake(10000, 10000);
 	CGPoint maxP = CGPointMake(-10000, -10000);
 	
+	// Find the angles at which the corners are before the rotation.
 	float firstAngle = (float)atan2((double)size.height / 2.0, (double)size.width / 2.0);
 	float secondAngle = (float)atan2((double)size.height / 2.0, (double)size.width / -2.0);
 	float thirdAngle = (float)atan2((double)size.height / -2.0, (double)size.width / -2.0);
 	float fourthAngle = (float)atan2((double)size.height / -2.0, (double)size.width / 2.0);
 	float angles[4] = {firstAngle, secondAngle, thirdAngle, fourthAngle};
 	
+	// Rotate the corners by the new degrees, finding out how outgoing
+	// the corners will be.  This will allow us to easily calculate
+	// the new size of the image.
 	for (int i = 0; i < 4; i++) {
+		// conver the angle to radians.
 		float deg = angles[i] * (float)(180.0f / M_PI);
 		CGPoint p1 = locationForAngle(deg + degrees, hypotenuse);
 		if (p1.x < minP.x) minP.x = p1.x;
@@ -452,6 +343,8 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	newSize.width = maxP.x - minP.x;
 	newSize.height = maxP.y - minP.y;
 	
+	// Figure out where the thing is going to go when rotated by the bottom left
+	// corner.  Use that information to translate it so that it rotates from the center.
 	hypotenuse = (CGFloat)sqrt((pow(newSize.width / 2.0, 2) + pow(newSize.height / 2.0, 2)));
 	CGPoint newCenter;
 	float addAngle = (float)atan2((double)newSize.height / 2, (double)newSize.width / 2) * (float)(180.0f / M_PI);
@@ -502,6 +395,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	free(bitmapData);
 	[super dealloc];
 }
+
 @end
 
 @implementation UIImage (ANImageBitmapRep)
@@ -518,6 +412,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	[pool drain];
 	return [img autorelease];
 }
+
 - (UIImage *)aspectScaleToSize:(CGSize)sz {
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	ANImageBitmapRep * irep = [self imageBitmapRep];

@@ -36,6 +36,7 @@
 		FA5D8D70130F6D1100E524A8 /* Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D8D6E130F6D1100E524A8 /* Rotation.m */; };
 		FA5D8D71130F6D1100E524A8 /* Rotation.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5D8D6F130F6D1100E524A8 /* Rotation.xib */; };
 		FA5D8D73130F6DC000E524A8 /* rotate_me.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5D8D72130F6DC000E524A8 /* rotate_me.png */; };
+		FAB3D5F713C204EE00D1DB65 /* CGContextCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB3D5F613C204EE00D1DB65 /* CGContextCreator.m */; };
 		FAC049EE1370BAF700EA793F /* CGImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC049ED1370BAF700EA793F /* CGImageContainer.m */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,8 @@
 		FA5D8D6E130F6D1100E524A8 /* Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rotation.m; sourceTree = "<group>"; };
 		FA5D8D6F130F6D1100E524A8 /* Rotation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Rotation.xib; path = Classes/Rotation.xib; sourceTree = "<group>"; };
 		FA5D8D72130F6DC000E524A8 /* rotate_me.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotate_me.png; sourceTree = "<group>"; };
+		FAB3D5F513C204EE00D1DB65 /* CGContextCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGContextCreator.h; sourceTree = "<group>"; };
+		FAB3D5F613C204EE00D1DB65 /* CGContextCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGContextCreator.m; sourceTree = "<group>"; };
 		FAC049EC1370BAF700EA793F /* CGImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGImageContainer.h; sourceTree = "<group>"; };
 		FAC049ED1370BAF700EA793F /* CGImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGImageContainer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +192,8 @@
 				FA5216C4130B21140065A0FE /* ANImageBitmapRep.m */,
 				FAC049EC1370BAF700EA793F /* CGImageContainer.h */,
 				FAC049ED1370BAF700EA793F /* CGImageContainer.m */,
+				FAB3D5F513C204EE00D1DB65 /* CGContextCreator.h */,
+				FAB3D5F613C204EE00D1DB65 /* CGContextCreator.m */,
 			);
 			name = ANImageBitmapRep;
 			sourceTree = "<group>";
@@ -391,6 +396,7 @@
 				FA52181E130B3DCA0065A0FE /* DrawView.m in Sources */,
 				FA5D8D70130F6D1100E524A8 /* Rotation.m in Sources */,
 				FAC049EE1370BAF700EA793F /* CGImageContainer.m in Sources */,
+				FAB3D5F713C204EE00D1DB65 /* CGContextCreator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
