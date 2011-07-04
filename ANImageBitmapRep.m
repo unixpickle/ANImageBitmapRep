@@ -129,7 +129,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	CGSize size = CGSizeMake((CGFloat)round((double)theSize.width), (CGFloat)round((double)theSize.height));
 	CGImageRef _img = [self CGImage];
 	
-	CGContextRef _ctx = [ANImageBitmapRep newARGBBitmapContextWithSize:size];
+	CGContextRef _ctx = [CGContextCreator newARGBBitmapContextWithSize:size];
 	CGContextRelease(ctx);
 	free(bitmapData);
 	
@@ -159,7 +159,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	
 	CGImageRef _img = [self CGImage];
 	
-	CGContextRef _ctx = [ANImageBitmapRep newARGBBitmapContextWithSize:newSize];
+	CGContextRef _ctx = [CGContextCreator newARGBBitmapContextWithSize:newSize];
 	CGContextRelease(ctx);
 	free(bitmapData);
 	// image will still be retained.
@@ -192,7 +192,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	
 	CGImageRef _img = [self CGImage];
 	
-	CGContextRef _ctx = [ANImageBitmapRep newARGBBitmapContextWithSize:newSize];
+	CGContextRef _ctx = [CGContextCreator newARGBBitmapContextWithSize:newSize];
 	CGContextRelease(ctx);
 	free(bitmapData);
 	// image will still be retained.
