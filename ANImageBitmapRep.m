@@ -21,6 +21,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 @implementation ANImageBitmapRep
 
 - (id)initWithSize:(CGSize)size {
+	NSAssert(size.width > 0 && size.height > 0, @"Cannot create an image of specified size.");
 	if ((self = [super init])) {
 		// load the image into the context
 		ctx = [CGContextCreator newARGBBitmapContextWithSize:size];
@@ -28,8 +29,8 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 			[super dealloc];
 			return nil;
 		}
-		changed = YES;
 		bitmapData = CGBitmapContextGetData(ctx);
+		[self setNeedsUpdate];
 	}
 	return self;
 }
@@ -43,7 +44,6 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 		}
 		img = CGImageRetain([anImage CGImage]);
 		ctx = [CGContextCreator newARGBBitmapContextWithImage:img];
-		changed = NO;
 		bitmapData = CGBitmapContextGetData(ctx);
 	}
 	return self;
@@ -111,7 +111,6 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 
 - (void)get255Pixel:(unsigned char *)pxl atX:(int)x y:(int)y {
 	CGSize s = [self size];
-	changed = YES;
 	unsigned char * c = (unsigned char *)&bitmapData[((y * (int)(s.width))+x) * 4];
 	pxl[1] = c[0];
 	pxl[2] = c[1];
@@ -126,6 +125,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 }
 
 - (void)setSize:(CGSize)theSize {
+	NSAssert(theSize.width > 0 && theSize.height > 0, @"Cannot create an image of specified size.");
 	CGSize size = CGSizeMake((CGFloat)round((double)theSize.width), (CGFloat)round((double)theSize.height));
 	CGImageRef _img = [self CGImage];
 	
@@ -139,10 +139,11 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	CGContextClearRect(ctx, CGRectMake(0, 0, size.width, size.height));
 	CGContextDrawImage(ctx, CGRectMake(0, 0, size.width, size.height), _img);
 	
-	changed = YES;
+	[self setNeedsUpdate];
 }
 
 - (void)setSizeKeepingAspectRatio:(CGSize)newSize {
+	NSAssert(newSize.width > 0 && newSize.height > 0, @"Cannot create an image of specified size.");
 	CGSize oldSize = [self size];
 	float wratio = oldSize.width / newSize.width;
 	float hratio = oldSize.height / newSize.height;
@@ -172,10 +173,11 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 									   newSize.height / 2 - (newDrawSize.height / 2),
 									   newDrawSize.width, newDrawSize.height), _img);
 	
-	changed = YES;
+	[self setNeedsUpdate];
 }
 
 - (void)setSizeFillingWithAspect:(CGSize)newSize {
+	NSAssert(newSize.width > 0 && newSize.height > 0, @"Cannot create an image of specified size.");
 	CGSize oldSize = [self size];
 	float wratio = oldSize.width / newSize.width;
 	float hratio = oldSize.height / newSize.height;
@@ -205,7 +207,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 									   newSize.height / 2 - (newDrawSize.height / 2),
 									   newDrawSize.width, newDrawSize.height), _img);
 		
-	changed = YES;
+	[self setNeedsUpdate];
 }
 
 - (void)setBrightness:(float)percent {
@@ -222,15 +224,19 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 				bitmapData[i] = (char)(c);
 			}
 		}
+		[self setNeedsUpdate];
+		return;
 	}
 	CGSize s = [self size];
 	CGContextSaveGState(ctx);
 	CGContextSetFillColorWithColor(ctx, [[UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:(1.0f - percent)] CGColor]);
 	CGContextFillRect(ctx, CGRectMake(0, 0, s.width, s.height));
 	CGContextRestoreGState(ctx);
+	[self setNeedsUpdate];
 }
 
 - (void)setQuality:(float)percent {
+	if (percent == 1.0) return;
 	CGSize s = [self size];
 	CGSize back = [self size];
 	s.width *= percent;
@@ -241,7 +247,6 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 
 - (void)setPixel:(CGFloat *)pxl atX:(int)x y:(int)y {
 	CGSize s = [self size];
-	changed = YES;
 	float alpha = pxl[3];
 	unsigned char * c = (unsigned char *)&bitmapData[((y * (int)(s.width))+x) * 4];
 	// convert from ARGB to RGBA
@@ -259,22 +264,24 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	c[1] = (char)(i2);
 	c[2] = (char)(i3);
 	c[3] = (char)(i4);
+	[self setNeedsUpdate];
 }
 
 
 - (void)set255Pixel:(unsigned char *)pxl atX:(int)x y:(int)y {
 	CGSize s = [self size];
-	changed = YES;
 	unsigned char * c = (unsigned char *)&bitmapData[((y * (int)(s.width))+x) * 4];
 	c[1] = pxl[0];
 	c[2] = pxl[1];
 	c[3] = pxl[2];
 	c[0] = pxl[3];
+	[self setNeedsUpdate];
 }
 
 #pragma mark Drawing
 
 - (void)drawInRect:(CGRect)r {
+	if (r.size.width <= 0 || r.size.height <= 0) return;
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
 	if (!context) {
@@ -297,6 +304,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 #pragma mark Newbie Features
 
 - (ANImageBitmapRep *)cropWithFrame:(CGRect)nRect {
+	NSAssert(nRect.size.width > 0 && nRect.size.height > 0, @"Cannot create an image of specified size.");
 	ANImageBitmapRep * irep = [[ANImageBitmapRep alloc] initWithSize:nRect.size];
 	CGRect r;
 	r.size = [self size];
@@ -309,6 +317,9 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 }
 
 - (ANImageBitmapRep *)rotate:(float)degrees {
+	if (degrees == 0) {
+		return [[self retain] autorelease];
+	}
 	// rotate the image
 	CGSize size = self.size;
 	CGSize newSize;
@@ -386,7 +397,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 		}
 	}
 	
-	changed = YES;
+	[self setNeedsUpdate];
 }
 
 - (void)dealloc {
