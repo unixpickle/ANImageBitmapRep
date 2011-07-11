@@ -112,10 +112,10 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 - (void)get255Pixel:(unsigned char *)pxl atX:(int)x y:(int)y {
 	CGSize s = [self size];
 	unsigned char * c = (unsigned char *)&bitmapData[((y * (int)(s.width))+x) * 4];
-	pxl[1] = c[0];
-	pxl[2] = c[1];
-	pxl[3] = c[2];
-	pxl[0] = c[3];
+	pxl[0] = c[1];
+	pxl[1] = c[2];
+	pxl[2] = c[3];
+	pxl[3] = c[0];
 }
 
 #pragma mark Setting Properties
