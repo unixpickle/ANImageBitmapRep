@@ -22,8 +22,6 @@
 		FA225C8E13CCE096003E95FE /* RotatableBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8513CCE096003E95FE /* RotatableBitmapRep.m */; };
 		FA225C8F13CCE096003E95FE /* CGImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8713CCE096003E95FE /* CGImageContainer.m */; };
 		FA225C9013CCE096003E95FE /* CGContextCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8913CCE096003E95FE /* CGContextCreator.m */; };
-		FA5216D2130B21800065A0FE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
-		FA5216D3130B21800065A0FE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		FA5216DE130B21E80065A0FE /* ColorInverter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5216DC130B21E80065A0FE /* ColorInverter.m */; };
 		FA5216DF130B21E80065A0FE /* ColorInverter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5216DD130B21E80065A0FE /* ColorInverter.xib */; };
 		FA5216E6130B221C0065A0FE /* ColorInverterView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5216E5130B221C0065A0FE /* ColorInverterView.m */; };
@@ -41,16 +39,6 @@
 		FA5D8D71130F6D1100E524A8 /* Rotation.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5D8D6F130F6D1100E524A8 /* Rotation.xib */; };
 		FA5D8D73130F6DC000E524A8 /* rotate_me.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5D8D72130F6DC000E524A8 /* rotate_me.png */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FA521701130B23070065A0FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FA5216CB130B21410065A0FE;
-			remoteInfo = ANImageBitmapRep;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -80,7 +68,6 @@
 		FA225C8713CCE096003E95FE /* CGImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGImageContainer.m; sourceTree = "<group>"; };
 		FA225C8813CCE096003E95FE /* CGContextCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGContextCreator.h; sourceTree = "<group>"; };
 		FA225C8913CCE096003E95FE /* CGContextCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGContextCreator.m; sourceTree = "<group>"; };
-		FA5216CC130B21410065A0FE /* libANImageBitmapRep.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libANImageBitmapRep.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA5216DB130B21E80065A0FE /* ColorInverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorInverter.h; sourceTree = "<group>"; };
 		FA5216DC130B21E80065A0FE /* ColorInverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorInverter.m; sourceTree = "<group>"; };
 		FA5216DD130B21E80065A0FE /* ColorInverter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ColorInverter.xib; path = Classes/ColorInverter.xib; sourceTree = "<group>"; };
@@ -118,15 +105,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA5216CA130B21410065A0FE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FA5216D2130B21800065A0FE /* CoreGraphics.framework in Frameworks */,
-				FA5216D3130B21800065A0FE /* UIKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -146,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* ImageBitmapRep.app */,
-				FA5216CC130B21410065A0FE /* libANImageBitmapRep.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,16 +296,6 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		FA5216C8130B21410065A0FE /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
 		1D6058900D05DD3D006BFB54 /* ImageBitmapRep */ = {
 			isa = PBXNativeTarget;
@@ -341,29 +308,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				FA521702130B23070065A0FE /* PBXTargetDependency */,
 			);
 			name = ImageBitmapRep;
 			productName = ImageBitmapRep;
 			productReference = 1D6058910D05DD3D006BFB54 /* ImageBitmapRep.app */;
 			productType = "com.apple.product-type.application";
-		};
-		FA5216CB130B21410065A0FE /* ANImageBitmapRep */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FA5216D1130B217C0065A0FE /* Build configuration list for PBXNativeTarget "ANImageBitmapRep" */;
-			buildPhases = (
-				FA5216C8130B21410065A0FE /* Headers */,
-				FA5216C9130B21410065A0FE /* Sources */,
-				FA5216CA130B21410065A0FE /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ANImageBitmapRep;
-			productName = ANImageBitmapRep;
-			productReference = FA5216CC130B21410065A0FE /* libANImageBitmapRep.a */;
-			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -386,7 +335,6 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* ImageBitmapRep */,
-				FA5216CB130B21410065A0FE /* ANImageBitmapRep */,
 			);
 		};
 /* End PBXProject section */
@@ -437,22 +385,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FA5216C9130B21410065A0FE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FA521702130B23070065A0FE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FA5216CB130B21410065A0FE /* ANImageBitmapRep */;
-			targetProxy = FA521701130B23070065A0FE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -509,33 +442,6 @@
 			};
 			name = Release;
 		};
-		FA5216CD130B21410065A0FE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PREBINDING = NO;
-				PRODUCT_NAME = ANImageBitmapRep;
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		FA5216CE130B21410065A0FE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				PREBINDING = NO;
-				PRODUCT_NAME = ANImageBitmapRep;
-				SDKROOT = iphoneos;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -553,15 +459,6 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FA5216D1130B217C0065A0FE /* Build configuration list for PBXNativeTarget "ANImageBitmapRep" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FA5216CD130B21410065A0FE /* Debug */,
-				FA5216CE130B21410065A0FE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
