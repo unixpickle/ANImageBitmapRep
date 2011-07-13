@@ -27,14 +27,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self setTitle:@"Rotation"];
-	rotateMe = [[ANImageBitmapRep imageBitmapRepNamed:@"rotate_me.png"] retain];
+	rotateMe = [[ANImageBitmapRep alloc] initWithImage:[UIImage imageNamed:@"rotate_me.png"]];
 }
 
 
 - (IBAction)rotation:(id)sender {
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-	UIImage * rotated = [[rotateMe rotate:[angle value]] image];
+	UIImage * rotated = [[UIImage alloc] initWithCGImage:[rotateMe imageByRotating:[angle value]]];
 	[rotatedImage setImage:rotated];
+	[rotated release];
 	[pool drain];
 }
 

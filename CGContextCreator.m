@@ -27,8 +27,8 @@
     int bitmapBytesPerRow;
 	
 	// Get image width, height. We'll use the entire image.
-    size_t pixelsWide = size.width;
-    size_t pixelsHigh = size.height;
+    size_t pixelsWide = round(size.width);
+    size_t pixelsHigh = round(size.height);
 	
     bitmapBytesPerRow = (pixelsWide * 4);
     bitmapByteCount = (bitmapBytesPerRow * pixelsHigh);
@@ -66,7 +66,6 @@
     }
 	
 	CGContextClearRect(context, CGRectMake(0, 0, size.width, size.height));
-	
     CGColorSpaceRelease(colorSpace);
 	
     return context;	

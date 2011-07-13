@@ -31,13 +31,13 @@
 	CGPoint points[2];
 	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
 	if (!bitmap) {
-		bitmap = [[ANImageBitmapRep alloc] initWithSize:self.frame.size];
+		bitmap = [[ANImageBitmapRep imageBitmapRepWithCGSize:[self frame].size] retain];
 	}
 	CGPoint p = [[touches anyObject] locationInView:self];
 	p.y = self.frame.size.height - p.y;
 	points[0] = initial;
 	points[1] = p;
-	CGContextRef ctx = [bitmap graphicsContext];
+	CGContextRef ctx = [bitmap context];
 	CGContextSetStrokeColorSpace(ctx, space);
 	CGContextSetStrokeColor(ctx, color);
 	CGContextSetLineWidth(ctx, 4);
@@ -45,7 +45,7 @@
 	CGContextStrokeLineSegments(ctx, points, 2);
 	initial = p;
 	CGColorSpaceRelease(space);
-	[bitmap setNeedsUpdate];
+	[bitmap setNeedsUpdate:YES];
 	[self setNeedsDisplay];
 }
 
@@ -55,7 +55,7 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code.
 	if (bitmap) {
-		[bitmap drawInRect:self.bounds];
+		[[bitmap image] drawInRect:self.bounds];
 	}
 }
 

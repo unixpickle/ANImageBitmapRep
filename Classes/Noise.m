@@ -27,18 +27,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	self.title = @"Noise";
-	CGSize sz = [noiseView frame].size;
-	ANImageBitmapRep * irep = [[ANImageBitmapRep alloc] initWithSize:sz];
-	for (int y = 0; y < sz.height; y++) {
-		for (int x = 0; x < sz.width; x++) {
-			// here we will stab a monkey,
-			// then drain its guts on the floor.
-			CGFloat random[4];
-			random[0] = ((CGFloat)(arc4random() % 20) + 90.0f) / 255.0f;
-			random[1] = random[0];
-			random[2] = random[0];
-			random[3] = 1;
-			[irep setPixel:random atX:x y:y];
+	BMPoint noiseSize = BMPointFromSize([noiseView frame].size);
+	ANImageBitmapRep * irep = [[ANImageBitmapRep alloc] initWithSize:noiseSize];
+	for (int y = 0; y < noiseSize.y; y++) {
+		for (int x = 0; x < noiseSize.x; x++) {
+			CGFloat value = ((CGFloat)(arc4random() % 20) + 90.0f) / 255.0f;
+			[irep setPixel:BMPixelMake(value, value, value, 1) atPoint:BMPointMake(x, y)];
 		}
 	}
 	[noiseView setImage:[irep image]];

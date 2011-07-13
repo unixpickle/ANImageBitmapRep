@@ -31,9 +31,9 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code.
 	if (!image) {
-		image = [[ANImageBitmapRep imageBitmapRepNamed:@"inverter.png"] retain];
+		image = [[ANImageBitmapRep imageBitmapRepWithImage:[UIImage imageNamed:@"inverter.png"]] retain];
 	}
-	[image drawInRect:self.bounds];
+	[(UIImage *)[image image] drawInRect:self.bounds];
 }
 
 

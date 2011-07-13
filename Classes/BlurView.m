@@ -32,11 +32,11 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code.
 	if (!image) {
-		image = [[ANImageBitmapRep imageBitmapRepNamed:@"starrynight.png"] retain];
+		image = [[ANImageBitmapRep alloc] initWithImage:[UIImage imageNamed:@"starrynight.png"]];
 	}
 	ANImageBitmapRep * blurred = [[ANImageBitmapRep alloc] initWithImage:[image image]];
 	[blurred setQuality:(1 - blur)];
-	[blurred drawInRect:self.bounds];
+	[[blurred image] drawInRect:self.bounds];
 	[blurred release];
 }
 
