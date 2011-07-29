@@ -35,6 +35,9 @@
 		FA52181A130B3DBA0065A0FE /* Draw.m in Sources */ = {isa = PBXBuildFile; fileRef = FA521818130B3DBA0065A0FE /* Draw.m */; };
 		FA52181B130B3DBA0065A0FE /* Draw.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA521819130B3DBA0065A0FE /* Draw.xib */; };
 		FA52181E130B3DCA0065A0FE /* DrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA52181D130B3DCA0065A0FE /* DrawView.m */; };
+		FA56558B13E3779D001BF6A6 /* GetPixel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA56558A13E3779D001BF6A6 /* GetPixel.m */; };
+		FA56558E13E377AE001BF6A6 /* GetPixelDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = FA56558D13E377AE001BF6A6 /* GetPixelDemo.m */; };
+		FA56559613E3791A001BF6A6 /* wheel.png in Resources */ = {isa = PBXBuildFile; fileRef = FA56559513E3791A001BF6A6 /* wheel.png */; };
 		FA5D8D70130F6D1100E524A8 /* Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D8D6E130F6D1100E524A8 /* Rotation.m */; };
 		FA5D8D71130F6D1100E524A8 /* Rotation.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5D8D6F130F6D1100E524A8 /* Rotation.xib */; };
 		FA5D8D73130F6DC000E524A8 /* rotate_me.png in Resources */ = {isa = PBXBuildFile; fileRef = FA5D8D72130F6DC000E524A8 /* rotate_me.png */; };
@@ -88,6 +91,11 @@
 		FA521819130B3DBA0065A0FE /* Draw.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Draw.xib; path = Classes/Draw.xib; sourceTree = "<group>"; };
 		FA52181C130B3DCA0065A0FE /* DrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawView.h; sourceTree = "<group>"; };
 		FA52181D130B3DCA0065A0FE /* DrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawView.m; sourceTree = "<group>"; };
+		FA56558913E3779D001BF6A6 /* GetPixel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPixel.h; sourceTree = "<group>"; };
+		FA56558A13E3779D001BF6A6 /* GetPixel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPixel.m; sourceTree = "<group>"; };
+		FA56558C13E377AE001BF6A6 /* GetPixelDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetPixelDemo.h; sourceTree = "<group>"; };
+		FA56558D13E377AE001BF6A6 /* GetPixelDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GetPixelDemo.m; sourceTree = "<group>"; };
+		FA56559513E3791A001BF6A6 /* wheel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wheel.png; sourceTree = "<group>"; };
 		FA5D8D6D130F6D1100E524A8 /* Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rotation.h; sourceTree = "<group>"; };
 		FA5D8D6E130F6D1100E524A8 /* Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rotation.m; sourceTree = "<group>"; };
 		FA5D8D6F130F6D1100E524A8 /* Rotation.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Rotation.xib; path = Classes/Rotation.xib; sourceTree = "<group>"; };
@@ -224,6 +232,7 @@
 		FA52172E130B24220065A0FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA56559513E3791A001BF6A6 /* wheel.png */,
 				FA52178D130B2A780065A0FE /* starrynight.png */,
 				FA52172C130B241D0065A0FE /* inverter.png */,
 				FA5D8D72130F6DC000E524A8 /* rotate_me.png */,
@@ -234,6 +243,7 @@
 		FA521772130B291C0065A0FE /* Sub-Apps */ = {
 			isa = PBXGroup;
 			children = (
+				FA56558813E3778D001BF6A6 /* GetPixel */,
 				FA5D8D6C130F6D0200E524A8 /* Rotation */,
 				FA521816130B3D730065A0FE /* Draw */,
 				FA5217D1130B38E20065A0FE /* Noise */,
@@ -283,6 +293,17 @@
 				FA52181D130B3DCA0065A0FE /* DrawView.m */,
 			);
 			name = Draw;
+			sourceTree = "<group>";
+		};
+		FA56558813E3778D001BF6A6 /* GetPixel */ = {
+			isa = PBXGroup;
+			children = (
+				FA56558913E3779D001BF6A6 /* GetPixel.h */,
+				FA56558A13E3779D001BF6A6 /* GetPixel.m */,
+				FA56558C13E377AE001BF6A6 /* GetPixelDemo.h */,
+				FA56558D13E377AE001BF6A6 /* GetPixelDemo.m */,
+			);
+			name = GetPixel;
 			sourceTree = "<group>";
 		};
 		FA5D8D6C130F6D0200E524A8 /* Rotation */ = {
@@ -354,6 +375,7 @@
 				FA52181B130B3DBA0065A0FE /* Draw.xib in Resources */,
 				FA5D8D71130F6D1100E524A8 /* Rotation.xib in Resources */,
 				FA5D8D73130F6DC000E524A8 /* rotate_me.png in Resources */,
+				FA56559613E3791A001BF6A6 /* wheel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +404,8 @@
 				FA225C8E13CCE096003E95FE /* RotatableBitmapRep.m in Sources */,
 				FA225C8F13CCE096003E95FE /* CGImageContainer.m in Sources */,
 				FA225C9013CCE096003E95FE /* CGContextCreator.m in Sources */,
+				FA56558B13E3779D001BF6A6 /* GetPixel.m in Sources */,
+				FA56558E13E377AE001BF6A6 /* GetPixelDemo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

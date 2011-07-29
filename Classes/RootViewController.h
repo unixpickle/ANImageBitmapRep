@@ -12,6 +12,7 @@
 #import "Noise.h"
 #import "Draw.h"
 #import "Rotation.h"
+#import "GetPixel.h"
 
 @interface RootViewController : UITableViewController {
 	NSArray * views;

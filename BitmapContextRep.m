@@ -105,7 +105,6 @@ BMPoint BMPointFromPoint (CGPoint point) {
 }
 
 - (void)dealloc {
-	NSLog(@"ibr: dealloc");
 	CGContextRelease(context);
 	free(bitmapData);
 	if (lastImage != NULL) {

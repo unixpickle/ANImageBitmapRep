@@ -124,8 +124,8 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 		if (p1.y > maxP.y) maxP.y = p1.y;
 	}
 	
-	newSize.width = maxP.x - minP.x;
-	newSize.height = maxP.y - minP.y;
+	newSize.width = ceil(maxP.x - minP.x);
+	newSize.height = ceil(maxP.y - minP.y);
 	
 	/* Figure out where the thing is going to go when rotated by the bottom left
 	   corner.  Use that information to translate it so that it rotates from the center.
