@@ -58,8 +58,10 @@
 }
 
 - (void)pixelDemoGotPixel:(BMPixel)pixel {
-	UIColor * color = [UIColor colorWithRed:pixel.red green:pixel.green blue:pixel.blue alpha:pixel.alpha];
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	UIColor * color = UIColorFromBMPixel(pixel);
 	[pxlView setBackgroundColor:color];
+	[pool drain];
 }
 
 

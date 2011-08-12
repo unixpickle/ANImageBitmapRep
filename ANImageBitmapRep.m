@@ -84,6 +84,10 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 }
 
 - (void)setPixel:(BMPixel)pixel atPoint:(BMPoint)point {
+	NSAssert(pixel.red >= 0 && pixel.red <= 1, @"Pixel color must range from 0 to 1.");
+	NSAssert(pixel.green >= 0 && pixel.green <= 1, @"Pixel color must range from 0 to 1.");
+	NSAssert(pixel.blue >= 0 && pixel.blue <= 1, @"Pixel color must range from 0 to 1.");
+	NSAssert(pixel.alpha >= 0 && pixel.alpha <= 1, @"Pixel color must range from 0 to 1.");
 	UInt8 rawPixel[4];
 	rawPixel[0] = round(pixel.red * 255.0);
 	rawPixel[1] = round(pixel.green * 255.0);
