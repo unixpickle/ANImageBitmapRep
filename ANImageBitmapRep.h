@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "RotatableBitmapRep.h"
+#import "UIImage+ANImageBitmapRep.h"
 
 typedef struct {
 	CGFloat red;
@@ -17,6 +18,7 @@ typedef struct {
 } BMPixel;
 
 BMPixel BMPixelMake (CGFloat red, CGFloat green, CGFloat blue, CGFloat alpha);
+UIColor * UIColorFromBMPixel (BMPixel pixel);
 
 @interface ANImageBitmapRep : RotatableBitmapRep {
     

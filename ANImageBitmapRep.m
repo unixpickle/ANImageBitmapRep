@@ -17,6 +17,10 @@ BMPixel BMPixelMake (CGFloat red, CGFloat green, CGFloat blue, CGFloat alpha) {
 	return pixel;
 }
 
+UIColor * UIColorFromBMPixel (BMPixel pixel) {
+	return [UIColor colorWithRed:pixel.red green:pixel.green blue:pixel.blue alpha:pixel.alpha];
+}
+
 @implementation ANImageBitmapRep
 
 + (ANImageBitmapRep *)imageBitmapRepWithCGSize:(CGSize)avgSize {

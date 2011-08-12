@@ -22,6 +22,7 @@
 		FA225C8E13CCE096003E95FE /* RotatableBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8513CCE096003E95FE /* RotatableBitmapRep.m */; };
 		FA225C8F13CCE096003E95FE /* CGImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8713CCE096003E95FE /* CGImageContainer.m */; };
 		FA225C9013CCE096003E95FE /* CGContextCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8913CCE096003E95FE /* CGContextCreator.m */; };
+		FA41039813F4D17200236F26 /* UIImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA41039713F4D17200236F26 /* UIImage+ANImageBitmapRep.m */; };
 		FA5216DE130B21E80065A0FE /* ColorInverter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5216DC130B21E80065A0FE /* ColorInverter.m */; };
 		FA5216DF130B21E80065A0FE /* ColorInverter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5216DD130B21E80065A0FE /* ColorInverter.xib */; };
 		FA5216E6130B221C0065A0FE /* ColorInverterView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5216E5130B221C0065A0FE /* ColorInverterView.m */; };
@@ -71,6 +72,8 @@
 		FA225C8713CCE096003E95FE /* CGImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGImageContainer.m; sourceTree = "<group>"; };
 		FA225C8813CCE096003E95FE /* CGContextCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGContextCreator.h; sourceTree = "<group>"; };
 		FA225C8913CCE096003E95FE /* CGContextCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGContextCreator.m; sourceTree = "<group>"; };
+		FA41039613F4D17200236F26 /* UIImage+ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ANImageBitmapRep.h"; sourceTree = "<group>"; };
+		FA41039713F4D17200236F26 /* UIImage+ANImageBitmapRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ANImageBitmapRep.m"; sourceTree = "<group>"; };
 		FA5216DB130B21E80065A0FE /* ColorInverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorInverter.h; sourceTree = "<group>"; };
 		FA5216DC130B21E80065A0FE /* ColorInverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorInverter.m; sourceTree = "<group>"; };
 		FA5216DD130B21E80065A0FE /* ColorInverter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ColorInverter.xib; path = Classes/ColorInverter.xib; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				FA225C7D13CCE096003E95FE /* BitmapContextRep.m */,
 				FA225C7E13CCE096003E95FE /* ANImageBitmapRep.h */,
 				FA225C7F13CCE096003E95FE /* ANImageBitmapRep.m */,
+				FA41039613F4D17200236F26 /* UIImage+ANImageBitmapRep.h */,
+				FA41039713F4D17200236F26 /* UIImage+ANImageBitmapRep.m */,
 			);
 			name = ANImageBitmapRep;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 				FA225C9013CCE096003E95FE /* CGContextCreator.m in Sources */,
 				FA56558B13E3779D001BF6A6 /* GetPixel.m in Sources */,
 				FA56558E13E377AE001BF6A6 /* GetPixelDemo.m in Sources */,
+				FA41039813F4D17200236F26 /* UIImage+ANImageBitmapRep.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
