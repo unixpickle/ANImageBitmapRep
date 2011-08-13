@@ -76,10 +76,10 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 	UInt8 rawPixel[4];
 	[self getRawPixel:rawPixel atPoint:point];
 	BMPixel pixel;
-	pixel.red = (CGFloat)(rawPixel[0]) / 255.0;
-	pixel.green = (CGFloat)(rawPixel[1]) / 255.0;
-	pixel.blue = (CGFloat)(rawPixel[2]) / 255.0;
 	pixel.alpha = (CGFloat)(rawPixel[3]) / 255.0;
+	pixel.red = ((CGFloat)(rawPixel[0]) / 255.0) / pixel.alpha;
+	pixel.green = ((CGFloat)(rawPixel[1]) / 255.0) / pixel.alpha;
+	pixel.blue = ((CGFloat)(rawPixel[2]) / 255.0) / pixel.alpha;
 	return pixel;
 }
 
@@ -89,9 +89,9 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 	NSAssert(pixel.blue >= 0 && pixel.blue <= 1, @"Pixel color must range from 0 to 1.");
 	NSAssert(pixel.alpha >= 0 && pixel.alpha <= 1, @"Pixel color must range from 0 to 1.");
 	UInt8 rawPixel[4];
-	rawPixel[0] = round(pixel.red * 255.0);
-	rawPixel[1] = round(pixel.green * 255.0);
-	rawPixel[2] = round(pixel.blue * 255.0);
+	rawPixel[0] = round(pixel.red * 255.0 * pixel.alpha);
+	rawPixel[1] = round(pixel.green * 255.0 * pixel.alpha);
+	rawPixel[2] = round(pixel.blue * 255.0 * pixel.alpha);
 	rawPixel[3] = round(pixel.alpha * 255.0);
 	[self setRawPixel:rawPixel atPoint:point];
 }
