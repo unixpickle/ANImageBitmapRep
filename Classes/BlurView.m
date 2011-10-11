@@ -7,7 +7,7 @@
 //
 
 #import "BlurView.h"
-
+#import "ScalableBitmapRep.h"
 
 @implementation BlurView
 

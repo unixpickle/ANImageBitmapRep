@@ -1,0 +1,19 @@
+# OSX Noise
+.DS_Store
+
+# Xcode Noise
+*.pbxuser
+*.perspectivev3
+*.xcuserdatad*
+*.xcworkspacedata
+
+build/
+
+*.mode1v3
+*.mode2v3
+
+# Old School
+.svn/
+
+# Extra Data
+*.zip
