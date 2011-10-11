@@ -1,14 +1,25 @@
+Important
+=========
+
+This project uses submodules as such you must use the `--recursive` flag when cloning the project like this:
+
+    git clone --recursive git@github.com:bguest/RSColorPicker.git
+    
+If this doesn't work it's probably due to the fact that you are using an older version of git, update git and try again.
+
 # ANImageBitmapRep
 
-This is a class that I have been working on for a while now.  It was originally made only for managing the bitmap data of a UIImage, but has evolved quite a bit throughout the years that I have used it.  It currently allows for scaling, access ti bitmap data, drawing (using core graphics), cropping, rotating, and more.  Because ANImageBitmapRep encapsulates a CGContextRef, it's easy to throw in your own image manipulation code simply by drawing on the CGContextRef.
+This is a class that Alex Nichol have been working on for a while now.  It was originally made only for managing the bitmap data of a UIImage, but has evolved quite a bit throughout the years that he has used it.  It currently allows for scaling, access ti bitmap data, drawing (using core graphics), cropping, rotating, and more.  Because ANImageBitmapRep encapsulates a CGContextRef, it's easy to throw in your own image manipulation code simply by drawing on the CGContextRef.
 
 ## The History
 
-A while ago (in 2009) I decided that I needed a way to access the bitmap data of an image.  This was when ANImageBitmapRep was born.  I original created this class based on the existing Cocoa class, NSBitmapImageRep, which is not available on the iPhone.
+A while ago (in 2009) Alex decided that he needed a way to access the bitmap data of an image.  This was when ANImageBitmapRep was born.  I original created this class based on the existing Cocoa class, NSBitmapImageRep, which is not available on the iPhone.
 
-This simple class later evolved due to my needs while using it in different apps.  Most of the time when I make an app that uses this, I end up adding something to the class that was not there before.  It was silly of me to not post this to GitHub a long time ago, because I find myself using ANImageBitmapRep constantly, and I bet other people out there could use it too!
+This simple class later evolved due to my needs while using it in different apps.  Most of the time when He makes an app that uses this, Alex ends up adding something to the class that was not there before.  It was silly of him to not post this to GitHub a long time ago, because Alex finds myself using ANImageBitmapRep constantly, and He bets other people out there could use it too!
 
-In July, 2011, I decided to re-structure my Image Bitmap Rep classes to be more organized as well as more efficient.  My remake included adding various levels of subclasses to ANImageBitmapRep which provide basic to advanced functionality.  The ANImageBitmapRep class provides a few miscellaneous features, but mainly takes its functionality from its subclasses.
+In July, 2011, Alex decided to re-structure my Image Bitmap Rep classes to be more organized as well as more efficient.  My remake included adding various levels of subclasses to ANImageBitmapRep which provide basic to advanced functionality.  The ANImageBitmapRep class provides a few miscellaneous features, but mainly takes its functionality from its subclasses.
+
+In November of 2011, Ben decided to start using the core functionality [RSColorPicker](https://github.com/bguest/RSColorPicker), so he extracted the key classes and made them a submodule. Yeah, Ben knows no one knows how to use submodules, but this is what they were designed to do.
 
 ## The Usage
 
@@ -46,10 +57,6 @@ Finally, what is an image if it's not spinning around in a nauseating way?  In <
     [image rotate:120];
 
 Well, that concludes our basic usage overview.  You can find more information on some of these methods in their headers.  I follow a strict Doxygen/Javadoc format for function descriptions, so it should be pretty simple to read what each of them do.
-
-## What Is That "oldies" branch?
-
-Before I did my remake, ANImageBitmapRep was one class that implemented all of the features that it provided.  After I did my remake, I found that most of the methods and calls to ANImageBitmapRep must be formed differently, and therefore the remake is not compatible with the original.  This is to say that you can't throw in the new ANImageBitmapRep and expect it to work with your old ANImageBitmapRep code.  The oldies branch contains the old version of ANImageBitmapRep (if I actually managed to make branches work :O), and should not be used in new projects.
 
 ## When Will I Add To It?
 
