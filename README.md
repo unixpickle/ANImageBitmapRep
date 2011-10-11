@@ -19,7 +19,7 @@ This simple class later evolved due to my needs while using it in different apps
 
 In July, 2011, Alex decided to re-structure my Image Bitmap Rep classes to be more organized as well as more efficient.  My remake included adding various levels of subclasses to ANImageBitmapRep which provide basic to advanced functionality.  The ANImageBitmapRep class provides a few miscellaneous features, but mainly takes its functionality from its subclasses.
 
-In November of 2011, Ben decided to start using the core functionality [RSColorPicker](https://github.com/bguest/RSColorPicker), so he extracted the key classes and made them a submodule. Yeah, Ben knows no one knows how to use submodules, but this is what they were designed to do.
+In November of 2011, Ben decided to start using the core functionality of ANImageBitmapRep in [RSColorPicker](https://github.com/bguest/RSColorPicker), so he extracted the key classes and made them a submodule. Yeah, Ben knows no one knows how to use submodules, but this is what they were designed to do, so now might be a good time to learn about them. Ben also realized that using a chain of subclasses to create multiple inhearances was a really contorted was kind of strange, so he changed the subclasses to catagories.
 
 ## The Usage
 
