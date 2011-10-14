@@ -102,3 +102,16 @@ BMPoint BMPointFromPoint (CGPoint point);
 - (CGImageRef)CGImage;
 
 @end
+
+@protocol BitmapContextRep
+
+@optional
+- (CGContextRef)context;
+- (void)setContext:(CGContextRef)aContext;
+- (BMPoint)bitmapSize;
+- (void)setNeedsUpdate:(BOOL)flag;
+- (void)getRawPixel:(UInt8 *)rgba atPoint:(BMPoint)point;
+- (void)setRawPixel:(const UInt8 *)rgba atPoint:(BMPoint)point;
+- (CGImageRef)CGImage;
+
+@end

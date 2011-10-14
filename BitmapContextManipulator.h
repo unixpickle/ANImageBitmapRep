@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "BitmapContextRep.h"
 
-@interface BitmapContextManipulator : NSObject {
-	BitmapContextRep * context;
+@interface BitmapContextManipulator : NSObject <BitmapContextRep> {
+	BitmapContextRep * bitmapContext;
 }
 
-@property (nonatomic, assign) BitmapContextRep * context;
+@property (nonatomic, assign) BitmapContextRep * bitmapContext;
 
 - (id)initWithContext:(BitmapContextRep *)aContext;
 

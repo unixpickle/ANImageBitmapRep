@@ -13,14 +13,14 @@
 
 - (void)setSize:(BMPoint)aSize {
 	CGContextRef newContext = [CGContextCreator newARGBBitmapContextWithSize:CGSizeMake(aSize.x, aSize.y)];
-	CGImageRef image = [context CGImage];
+	CGImageRef image = [bitmapContext CGImage];
 	CGContextDrawImage(newContext, CGRectMake(0, 0, aSize.x, aSize.y), image);
-	[context setContext:newContext];
+	[bitmapContext setContext:newContext];
 	CGContextRelease(newContext);
 }
 
 - (void)setSizeFittingFrame:(BMPoint)aSize {
-	CGSize oldSize = CGSizeMake([context bitmapSize].x, [context bitmapSize].y);
+	CGSize oldSize = CGSizeMake([bitmapContext bitmapSize].x, [bitmapContext bitmapSize].y);
 	CGSize newSize = CGSizeMake(aSize.x, aSize.y);
 	
 	float wratio = newSize.width / oldSize.width;
@@ -34,17 +34,17 @@
 	scaleRatio = scaleRatio;
 	
 	CGSize newContentSize = CGSizeMake(oldSize.width * scaleRatio, oldSize.height * scaleRatio);
-	CGImageRef image = [context CGImage];
+	CGImageRef image = [bitmapContext CGImage];
 	CGContextRef newContext = [CGContextCreator newARGBBitmapContextWithSize:CGSizeMake(aSize.x, aSize.y)];
 	CGContextDrawImage(newContext, CGRectMake(newSize.width / 2 - (newContentSize.width / 2),
 											  newSize.height / 2 - (newContentSize.height / 2),
 											  newSize.width, newContentSize.height), image);
-	[self setContext:context];
+	[bitmapContext setContext:newContext];
 	CGContextRelease(newContext);
 }
 
 - (void)setSizeFillingFrame:(BMPoint)aSize {
-	CGSize oldSize = CGSizeMake([context bitmapSize].x, [context bitmapSize].y);
+	CGSize oldSize = CGSizeMake([bitmapContext bitmapSize].x, [bitmapContext bitmapSize].y);
 	CGSize newSize = CGSizeMake(aSize.x, aSize.y);
 	
 	float wratio = newSize.width / oldSize.width;
@@ -58,12 +58,12 @@
 	scaleRatio = scaleRatio;
 	
 	CGSize newContentSize = CGSizeMake(oldSize.width * scaleRatio, oldSize.height * scaleRatio);
-	CGImageRef image = [context CGImage];
+	CGImageRef image = [bitmapContext CGImage];
 	CGContextRef newContext = [CGContextCreator newARGBBitmapContextWithSize:CGSizeMake(aSize.x, aSize.y)];
 	CGContextDrawImage(newContext, CGRectMake(newSize.width / 2 - (newContentSize.width / 2),
 											  newSize.height / 2 - (newContentSize.height / 2),
 											  newSize.width, newContentSize.height), image);
-	[self setContext:context];
+	[bitmapContext setContext:newContext];
 	CGContextRelease(newContext);
 }
 

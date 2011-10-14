@@ -22,7 +22,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 - (void)rotate:(CGFloat)degrees {
 	if (degrees == 0) return;
 	
-	CGSize size = CGSizeMake([context bitmapSize].x, [context bitmapSize].y);
+	CGSize size = CGSizeMake([bitmapContext bitmapSize].x, [bitmapContext bitmapSize].y);
 	CGSize newSize = CGSizeZero;
 	
 	/* Since the corners go off to the sides, we have to use the existing hypotenuse to calculate the new size
@@ -82,16 +82,16 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	drawRect.origin.x = (CGFloat)round((newSize.width / 2) - (size.width / 2));
 	drawRect.origin.y = (CGFloat)round((newSize.height / 2) - (size.height / 2));
 	
-	CGContextDrawImage(newContext, drawRect, [context CGImage]);
+	CGContextDrawImage(newContext, drawRect, [bitmapContext CGImage]);
 	CGContextRestoreGState(newContext);
-	[context setContext:newContext];
+	[bitmapContext setContext:newContext];
 	CGContextRelease(newContext);
 }
 
 - (CGImageRef)imageByRotating:(CGFloat)degrees {
-	if (degrees == 0) return [context CGImage];
+	if (degrees == 0) return [bitmapContext CGImage];
 	
-	CGSize size = CGSizeMake([context bitmapSize].x, [context bitmapSize].y);
+	CGSize size = CGSizeMake([bitmapContext bitmapSize].x, [bitmapContext bitmapSize].y);
 	CGSize newSize = CGSizeZero;
 	
 	/* Since the corners go off to the sides, we have to use the existing hypotenuse to calculate the new size
@@ -151,7 +151,7 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	drawRect.origin.x = (CGFloat)round((newSize.width / 2) - (size.width / 2));
 	drawRect.origin.y = (CGFloat)round((newSize.height / 2) - (size.height / 2));
 	
-	CGContextDrawImage(newContext, drawRect, [context CGImage]);
+	CGContextDrawImage(newContext, drawRect, [bitmapContext CGImage]);
 	CGContextRestoreGState(newContext);
 	CGImageRef image = CGBitmapContextCreateImage(newContext);
 	void * buff = CGBitmapContextGetData(newContext);

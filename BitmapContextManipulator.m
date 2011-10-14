@@ -10,17 +10,21 @@
 
 @implementation BitmapContextManipulator
 
-@synthesize context;
+@synthesize bitmapContext;
 
 - (id)initWithContext:(BitmapContextRep *)aContext {
 	if ((self = [super init])) {
-		self.context = aContext;
+		self.bitmapContext = aContext;
 	}
 	return self;
 }
 
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+	[anInvocation invokeWithTarget:bitmapContext];
+}
+
 - (void)dealloc {
-	self.context = nil;
+	self.bitmapContext = nil;
 	[super dealloc];
 }
 
