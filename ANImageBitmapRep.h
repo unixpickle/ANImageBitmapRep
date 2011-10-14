@@ -7,7 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RotatableBitmapRep.h"
+#import "BitmapScaleManipulator.h"
+#import "BitmapCropManipulator.h"
+#import "BitmapRotationManipulator.h"
 #import "UIImage+ANImageBitmapRep.h"
 
 typedef struct {
@@ -20,8 +22,8 @@ typedef struct {
 BMPixel BMPixelMake (CGFloat red, CGFloat green, CGFloat blue, CGFloat alpha);
 UIColor * UIColorFromBMPixel (BMPixel pixel);
 
-@interface ANImageBitmapRep : RotatableBitmapRep {
-    
+@interface ANImageBitmapRep : BitmapContextRep <BitmapScaleManipulator, BitmapCropManipulator, BitmapRotationManipulator> {
+    NSArray * baseClasses;
 }
 
 + (ANImageBitmapRep *)imageBitmapRepWithCGSize:(CGSize)avgSize;

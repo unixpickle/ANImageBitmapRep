@@ -21,7 +21,25 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 	return [UIColor colorWithRed:pixel.red green:pixel.green blue:pixel.blue alpha:pixel.alpha];
 }
 
+@interface ANImageBitmapRep (BaseClasses)
+
+- (void)generateBaseClasses;
+
+@end
+
 @implementation ANImageBitmapRep
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+	if (!baseClasses) [self generateBaseClasses];
+	for (int i = 0; i < [baseClasses count]; i++) {
+		BitmapContextManipulator * manip = [baseClasses objectAtIndex:i];
+		if ([manip respondsToSelector:[anInvocation selector]]) {
+			[anInvocation invokeWithTarget:manip];
+			return;
+		}
+	}
+	[self doesNotRecognizeSelector:[anInvocation selector]];
+}
 
 + (ANImageBitmapRep *)imageBitmapRepWithCGSize:(CGSize)avgSize {
 	return [[[ANImageBitmapRep alloc] initWithSize:BMPointMake(round(avgSize.width), round(avgSize.height))] autorelease];
@@ -98,6 +116,23 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 
 - (UIImage *)image {
 	return [[[UIImage alloc] initWithCGImage:[self CGImage]] autorelease];
+}
+
+- (void)dealloc {
+	[baseClasses release];
+	[super dealloc];
+}
+
+#pragma mark Base Classes
+
+- (void)generateBaseClasses {
+	BitmapCropManipulator * croppable = [[BitmapCropManipulator alloc] initWithContext:self];
+	BitmapScaleManipulator * scalable = [[BitmapScaleManipulator alloc] initWithContext:self];
+	BitmapRotationManipulator * rotatable = [[BitmapRotationManipulator alloc] initWithContext:self];
+	baseClasses = [[NSArray alloc] initWithObjects:croppable, scalable, rotatable, nil];
+	[rotatable release];
+	[scalable release];
+	[croppable release];
 }
 
 @end
