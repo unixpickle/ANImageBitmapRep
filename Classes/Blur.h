@@ -11,8 +11,10 @@
 
 @interface Blur : UIViewController {
 	IBOutlet BlurView * blurView;
+   IBOutlet UILabel* resultLabel;
 }
 
 - (IBAction)progressChange:(id)sender;
+- (IBAction)testPerformance:(id)sender;
 
 @end

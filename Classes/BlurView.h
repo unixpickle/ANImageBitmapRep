@@ -15,5 +15,7 @@
 }
 
 - (void)setBlur:(float)_blur;
+- (void)updateImage;
+- (NSTimeInterval)preformanceTest; //Tests the preformance of bluring
 
 @end

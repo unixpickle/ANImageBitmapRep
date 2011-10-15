@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,13 +15,13 @@
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
+		6F60CB2214497B30003AEDA4 /* ANImageBitmapRep+Crop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F60CB1D14497B30003AEDA4 /* ANImageBitmapRep+Crop.m */; };
+		6F60CB2314497B30003AEDA4 /* ANImageBitmapRep+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F60CB1F14497B30003AEDA4 /* ANImageBitmapRep+Rotate.m */; };
+		6F60CB2414497B30003AEDA4 /* ANImageBitmapRep+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F60CB2114497B30003AEDA4 /* ANImageBitmapRep+Scale.m */; };
 		6FB8BF081443F7650002E797 /* ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8BEE01443F7650002E797 /* ANImageBitmapRep.m */; };
 		6FB8BF091443F7650002E797 /* BitmapContextRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8BEE21443F7650002E797 /* BitmapContextRep.m */; };
 		6FB8BF0A1443F7650002E797 /* CGContextCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8BEE51443F7650002E797 /* CGContextCreator.m */; };
 		6FB8BF0B1443F7650002E797 /* CGImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8BEE71443F7650002E797 /* CGImageContainer.m */; };
-		6FB8BF0C1443F7650002E797 /* ANImageBitmapRep+Crop.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8BEEA1443F7650002E797 /* ANImageBitmapRep+Crop.m */; };
-		6FB8BF0D1443F7650002E797 /* ANImageBitmapRep+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8BEEC1443F7650002E797 /* ANImageBitmapRep+Rotate.m */; };
-		6FB8BF0E1443F7650002E797 /* ANImageBitmapRep+Scale.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8BEEE1443F7650002E797 /* ANImageBitmapRep+Scale.m */; };
 		6FB8BF0F1443F7650002E797 /* UIImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FB8BEF01443F7650002E797 /* UIImage+ANImageBitmapRep.m */; };
 		FA5216DE130B21E80065A0FE /* ColorInverter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5216DC130B21E80065A0FE /* ColorInverter.m */; };
 		FA5216DF130B21E80065A0FE /* ColorInverter.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA5216DD130B21E80065A0FE /* ColorInverter.xib */; };
@@ -57,6 +57,12 @@
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6F60CB1C14497B30003AEDA4 /* ANImageBitmapRep+Crop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANImageBitmapRep+Crop.h"; sourceTree = "<group>"; };
+		6F60CB1D14497B30003AEDA4 /* ANImageBitmapRep+Crop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANImageBitmapRep+Crop.m"; sourceTree = "<group>"; };
+		6F60CB1E14497B30003AEDA4 /* ANImageBitmapRep+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANImageBitmapRep+Rotate.h"; sourceTree = "<group>"; };
+		6F60CB1F14497B30003AEDA4 /* ANImageBitmapRep+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANImageBitmapRep+Rotate.m"; sourceTree = "<group>"; };
+		6F60CB2014497B30003AEDA4 /* ANImageBitmapRep+Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ANImageBitmapRep+Scale.h"; sourceTree = "<group>"; };
+		6F60CB2114497B30003AEDA4 /* ANImageBitmapRep+Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANImageBitmapRep+Scale.m"; sourceTree = "<group>"; };
 		6FB8BEDF1443F7650002E797 /* ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANImageBitmapRep.h; sourceTree = "<group>"; };
 		6FB8BEE01443F7650002E797 /* ANImageBitmapRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANImageBitmapRep.m; sourceTree = "<group>"; };
 		6FB8BEE11443F7650002E797 /* BitmapContextRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapContextRep.h; sourceTree = "<group>"; };
@@ -65,12 +71,6 @@
 		6FB8BEE51443F7650002E797 /* CGContextCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGContextCreator.m; sourceTree = "<group>"; };
 		6FB8BEE61443F7650002E797 /* CGImageContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGImageContainer.h; sourceTree = "<group>"; };
 		6FB8BEE71443F7650002E797 /* CGImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGImageContainer.m; sourceTree = "<group>"; };
-		6FB8BEE91443F7650002E797 /* ANImageBitmapRep+Crop.h */ = {isa = PBXFileReference; fileEncoding = 4; path = "ANImageBitmapRep+Crop.h"; sourceTree = "<group>"; };
-		6FB8BEEA1443F7650002E797 /* ANImageBitmapRep+Crop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANImageBitmapRep+Crop.m"; sourceTree = "<group>"; };
-		6FB8BEEB1443F7650002E797 /* ANImageBitmapRep+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; path = "ANImageBitmapRep+Rotate.h"; sourceTree = "<group>"; };
-		6FB8BEEC1443F7650002E797 /* ANImageBitmapRep+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANImageBitmapRep+Rotate.m"; sourceTree = "<group>"; };
-		6FB8BEED1443F7650002E797 /* ANImageBitmapRep+Scale.h */ = {isa = PBXFileReference; fileEncoding = 4; path = "ANImageBitmapRep+Scale.h"; sourceTree = "<group>"; };
-		6FB8BEEE1443F7650002E797 /* ANImageBitmapRep+Scale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ANImageBitmapRep+Scale.m"; sourceTree = "<group>"; };
 		6FB8BEEF1443F7650002E797 /* UIImage+ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ANImageBitmapRep.h"; sourceTree = "<group>"; };
 		6FB8BEF01443F7650002E797 /* UIImage+ANImageBitmapRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ANImageBitmapRep.m"; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ImageBitmapRep-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ImageBitmapRep-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
@@ -182,15 +182,28 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6F60CB1B14497B30003AEDA4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				6F60CB1C14497B30003AEDA4 /* ANImageBitmapRep+Crop.h */,
+				6F60CB1D14497B30003AEDA4 /* ANImageBitmapRep+Crop.m */,
+				6F60CB1E14497B30003AEDA4 /* ANImageBitmapRep+Rotate.h */,
+				6F60CB1F14497B30003AEDA4 /* ANImageBitmapRep+Rotate.m */,
+				6F60CB2014497B30003AEDA4 /* ANImageBitmapRep+Scale.h */,
+				6F60CB2114497B30003AEDA4 /* ANImageBitmapRep+Scale.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
 		6FB8BEB81443F7650002E797 /* ANImageBitmapRep */ = {
 			isa = PBXGroup;
 			children = (
+				6F60CB1B14497B30003AEDA4 /* Categories */,
 				6FB8BEDF1443F7650002E797 /* ANImageBitmapRep.h */,
 				6FB8BEE01443F7650002E797 /* ANImageBitmapRep.m */,
 				6FB8BEE11443F7650002E797 /* BitmapContextRep.h */,
 				6FB8BEE21443F7650002E797 /* BitmapContextRep.m */,
 				6FB8BEE31443F7650002E797 /* Core Graphics */,
-				6FB8BEE81443F7650002E797 /* Catagories */,
 				6FB8BEEF1443F7650002E797 /* UIImage+ANImageBitmapRep.h */,
 				6FB8BEF01443F7650002E797 /* UIImage+ANImageBitmapRep.m */,
 			);
@@ -206,20 +219,6 @@
 				6FB8BEE71443F7650002E797 /* CGImageContainer.m */,
 			);
 			path = "Core Graphics";
-			sourceTree = "<group>";
-		};
-		6FB8BEE81443F7650002E797 /* Catagories */ = {
-			isa = PBXGroup;
-			children = (
-				6FB8BEE91443F7650002E797 /* ANImageBitmapRep+Crop.h */,
-				6FB8BEEA1443F7650002E797 /* ANImageBitmapRep+Crop.m */,
-				6FB8BEEB1443F7650002E797 /* ANImageBitmapRep+Rotate.h */,
-				6FB8BEEC1443F7650002E797 /* ANImageBitmapRep+Rotate.m */,
-				6FB8BEED1443F7650002E797 /* ANImageBitmapRep+Scale.h */,
-				6FB8BEEE1443F7650002E797 /* ANImageBitmapRep+Scale.m */,
-			);
-			name = Catagories;
-			path = "Subclass Functionality";
 			sourceTree = "<group>";
 		};
 		FA5216E0130B21F00065A0FE /* ViewControllers */ = {
@@ -346,8 +345,11 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ImageBitmapRep" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -409,10 +411,10 @@
 				6FB8BF091443F7650002E797 /* BitmapContextRep.m in Sources */,
 				6FB8BF0A1443F7650002E797 /* CGContextCreator.m in Sources */,
 				6FB8BF0B1443F7650002E797 /* CGImageContainer.m in Sources */,
-				6FB8BF0C1443F7650002E797 /* ANImageBitmapRep+Crop.m in Sources */,
-				6FB8BF0D1443F7650002E797 /* ANImageBitmapRep+Rotate.m in Sources */,
-				6FB8BF0E1443F7650002E797 /* ANImageBitmapRep+Scale.m in Sources */,
 				6FB8BF0F1443F7650002E797 /* UIImage+ANImageBitmapRep.m in Sources */,
+				6F60CB2214497B30003AEDA4 /* ANImageBitmapRep+Crop.m in Sources */,
+				6F60CB2314497B30003AEDA4 /* ANImageBitmapRep+Rotate.m in Sources */,
+				6F60CB2414497B30003AEDA4 /* ANImageBitmapRep+Scale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,9 +454,11 @@
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -467,8 +471,8 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Release;

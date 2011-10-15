@@ -14,5 +14,7 @@
 }
 
 - (IBAction)invert:(id)sender;
+- (NSTimeInterval)preformanceTest; //Tests the preformance of bluring
+
 
 @end

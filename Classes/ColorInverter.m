@@ -29,6 +29,12 @@
 	self.title = @"Color Inverter";
 }
 
+- (IBAction)testPerformance:(id)sender{
+   
+   NSTimeInterval results = [colorInverterView preformanceTest];
+   resultLabel.text = [NSString stringWithFormat:@"%f",results];
+}
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.

@@ -7,7 +7,7 @@
 //
 
 #import "BlurView.h"
-#import "ScalableBitmapRep.h"
+#import "ANImageBitmapRep+Scale.h"
 
 @implementation BlurView
 
@@ -30,7 +30,12 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    // Drawing code.
+   [self updateImage];
+}
+
+- (void)updateImage{
+   // Drawing code.
+   NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 	if (!image) {
 		image = [[ANImageBitmapRep alloc] initWithImage:[UIImage imageNamed:@"starrynight.png"]];
 	}
@@ -38,8 +43,24 @@
 	[blurred setQuality:(1 - blur)];
 	[[blurred image] drawInRect:self.bounds];
 	[blurred release];
+   [pool drain];
 }
 
+/**
+ * This method blurs the image to different blur settings to test the preformance
+ * @return NSTimeInterval required to compleate tests
+ */
+- (NSTimeInterval)preformanceTest{
+   int stepsCount = 85; //Number of iterations to perform.
+   
+   NSDate *start = [NSDate date]; //Start Time
+
+   for (int i = 0; i<stepsCount; i++) {
+      [self setBlur:0.9*(float)i/stepsCount];
+      [self updateImage];
+   }
+   return -[start timeIntervalSinceNow];
+}
 
 - (void)dealloc {
     [image release];

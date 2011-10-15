@@ -7,7 +7,7 @@
 //
 
 #import "Rotation.h"
-#import "RotatableBitmapRep.h"
+#import "ANImageBitmapRep+Rotate.h"
 
 @implementation Rotation
 

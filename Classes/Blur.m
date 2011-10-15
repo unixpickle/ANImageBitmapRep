@@ -11,6 +11,7 @@
 
 @implementation Blur
 
+
 - (IBAction)progressChange:(id)sender {
 	[blurView setBlur:[(UISlider *)sender value]];
 }
@@ -33,6 +34,11 @@
 	self.title = @"Blur";
 }
 
+- (IBAction)testPerformance:(id)sender{
+
+   NSTimeInterval results = [blurView preformanceTest];
+   resultLabel.text = [NSString stringWithFormat:@"%f",results];
+}
 
 /*
 // Override to allow orientations other than the default portrait orientation.
