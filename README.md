@@ -10,6 +10,8 @@ This simple class later evolved due to my needs while using it in different apps
 
 In July, 2011, I decided to re-structure my Image Bitmap Rep classes to be more organized as well as more efficient.  My remake included adding various levels of subclasses to ANImageBitmapRep which provide basic to advanced functionality.  The ANImageBitmapRep class provides a few miscellaneous features, but mainly takes its functionality from its subclasses.
 
+In October, 2011, someone challenged my implementation of ```ANImageBitmapRep```, demoting the cascading subclass architecture. They modified the code to use categories, all to have me deny their pull request. Instead, I refactored my code, creating a new structure for subclassing, etc. Now, composition is used for all *manipulators*, and ```ANImageBitmapRep``` simply forwards messages to any number of *manipulators*. This structure also allows you to work with a single manipulator, without worrying about any methods that may be on ANImageBitmapRep or other manipulators.
+
 ## The Usage
 
 In order to use an ANImageBitmapRep for an image, you have to create one first.  This can be done either by using an existing UIImage, or creating a blank ANImageBitmapRep with given dimensions.  Both can be done through the following initializers:
