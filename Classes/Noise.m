@@ -36,7 +36,6 @@
 		}
 	}
 	[noiseView setImage:[irep image]];
-	[irep release];
 }
 
 
@@ -62,9 +61,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 
 @end

@@ -18,12 +18,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	views = [[NSArray arrayWithObjects:NSStringFromClass([ColorInverter class]),
+	views = [NSArray arrayWithObjects:NSStringFromClass([ColorInverter class]),
 			  NSStringFromClass([Blur class]),
 			  NSStringFromClass([Noise class]), 
 			  NSStringFromClass([Draw class]),
 			  NSStringFromClass([Rotation class]),
-			  NSStringFromClass([GetPixel class]), nil] retain];
+			  NSStringFromClass([GetPixel class]), nil];
 	self.title = @"Demos";
 	
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -87,7 +87,7 @@
     
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 	
 	cell.textLabel.text = [views objectAtIndex:indexPath.row];
@@ -145,7 +145,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController * vc = [[NSClassFromString([views objectAtIndex:indexPath.row]) alloc] initWithNibName:nil bundle:nil];
 	[self.navigationController pushViewController:vc animated:YES];
-	[vc release];
 }
 
 
@@ -165,10 +164,6 @@
 }
 
 
-- (void)dealloc {
-	[views release];
-    [super dealloc];
-}
 
 
 @end

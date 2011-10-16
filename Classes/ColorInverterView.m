@@ -30,7 +30,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
 	if (!image) {
-		image = [[ANImageBitmapRep imageBitmapRepWithImage:[UIImage imageNamed:@"inverter.png"]] retain];
+		image = [ANImageBitmapRep imageBitmapRepWithImage:[UIImage imageNamed:@"inverter.png"]];
 	}
 	[(UIImage *)[image image] drawInRect:self.bounds];
 }
@@ -51,10 +51,6 @@
 }
 
 
-- (void)dealloc {
-	if (image) [image release];
-    [super dealloc];
-}
 
 
 @end

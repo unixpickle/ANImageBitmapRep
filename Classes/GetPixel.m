@@ -20,11 +20,6 @@
     return self;
 }
 
-- (void)dealloc {
-	[demoView release];
-	[pxlView release];
-    [super dealloc];
-}
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -58,10 +53,10 @@
 }
 
 - (void)pixelDemoGotPixel:(BMPixel)pixel {
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-	UIColor * color = UIColorFromBMPixel(pixel);
-	[pxlView setBackgroundColor:color];
-	[pool drain];
+	@autoreleasepool {
+		UIColor * color = UIColorFromBMPixel(pixel);
+		[pxlView setBackgroundColor:color];
+	}
 }
 
 

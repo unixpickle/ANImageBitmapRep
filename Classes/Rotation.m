@@ -32,11 +32,10 @@
 
 
 - (IBAction)rotation:(id)sender {
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-	UIImage * rotated = [[UIImage alloc] initWithCGImage:[rotateMe imageByRotating:[angle value]]];
-	[rotatedImage setImage:rotated];
-	[rotated release];
-	[pool drain];
+	@autoreleasepool {
+		UIImage * rotated = [[UIImage alloc] initWithCGImage:[rotateMe imageByRotating:[angle value]]];
+		[rotatedImage setImage:rotated];
+	}
 }
 
 /*
@@ -61,10 +60,6 @@
 }
 
 
-- (void)dealloc {
-	[rotateMe release];
-    [super dealloc];
-}
 
 
 @end

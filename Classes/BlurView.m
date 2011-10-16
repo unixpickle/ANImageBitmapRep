@@ -35,15 +35,14 @@
 
 - (void)updateImage{
    // Drawing code.
-   NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-	if (!image) {
-		image = [[ANImageBitmapRep alloc] initWithImage:[UIImage imageNamed:@"starrynight.png"]];
-	}
-	ANImageBitmapRep * blurred = [[ANImageBitmapRep alloc] initWithImage:[image image]];
-	[blurred setQuality:(1 - blur)];
-	[[blurred image] drawInRect:self.bounds];
-	[blurred release];
-   [pool drain];
+   @autoreleasepool {
+		if (!image) {
+			image = [[ANImageBitmapRep alloc] initWithImage:[UIImage imageNamed:@"starrynight.png"]];
+		}
+		ANImageBitmapRep * blurred = [[ANImageBitmapRep alloc] initWithImage:[image image]];
+		[blurred setQuality:(1 - blur)];
+		[[blurred image] drawInRect:self.bounds];
+   }
 }
 
 /**
@@ -62,10 +61,6 @@
    return -[start timeIntervalSinceNow];
 }
 
-- (void)dealloc {
-    [image release];
-	[super dealloc];
-}
 
 
 @end

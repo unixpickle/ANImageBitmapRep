@@ -16,11 +16,11 @@
 @end
 
 @interface GetPixelDemo : UIView {
-    id<GetPixelDemoDelegate> delegate;
+    id<GetPixelDemoDelegate> __unsafe_unretained delegate;
 	ANImageBitmapRep * image;
 }
 
-@property (nonatomic, assign) id<GetPixelDemoDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id<GetPixelDemoDelegate> delegate;
 
 - (id)initWithFrame:(CGRect)frame image:(ANImageBitmapRep *)theImage;
 

@@ -22,7 +22,7 @@
 
 - (id)initWithFrame:(CGRect)frame image:(ANImageBitmapRep *)theImage {
 	if ((self = [super initWithFrame:frame])) {
-		image = [theImage retain];
+		image = theImage;
 	}
 	return self;
 }
@@ -54,9 +54,5 @@
 }
 
 
-- (void)dealloc {
-	[image release];
-    [super dealloc];
-}
 
 @end
