@@ -10,7 +10,11 @@
 #import "ANImageBitmapRep.h"
 
 @interface DrawView : UIView {
+#if __has_feature(objc_arc) == 1
+	__strong ANImageBitmapRep * bitmap;
+#else
 	ANImageBitmapRep * bitmap;
+#endif
 	CGPoint initial;
 }
 

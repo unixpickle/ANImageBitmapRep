@@ -11,20 +11,19 @@
 
 @implementation GetPixel
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
     }
     return self;
 }
 
+#if __has_feature(objc_arc) != 1
 - (void)dealloc {
 	[demoView release];
 	[pxlView release];
     [super dealloc];
 }
+#endif
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -58,22 +57,28 @@
 }
 
 - (void)pixelDemoGotPixel:(BMPixel)pixel {
+#if __has_feature(objc_arc) == 1
+	@autoreleasepool {
+#else
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+#endif
 	UIColor * color = UIColorFromBMPixel(pixel);
 	[pxlView setBackgroundColor:color];
+#if __has_feature(objc_arc) == 1
+	}
+#else
 	[pool drain];
+#endif
 }
 
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }

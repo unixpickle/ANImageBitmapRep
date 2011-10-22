@@ -36,7 +36,9 @@
 		}
 	}
 	[noiseView setImage:[irep image]];
+#if __has_feature(objc_arc) != 1
 	[irep release];
+#endif
 }
 
 
@@ -61,10 +63,10 @@
     // e.g. self.myOutlet = nil;
 }
 
-
+#if __has_feature(objc_arc) != 1
 - (void)dealloc {
     [super dealloc];
 }
-
+#endif
 
 @end

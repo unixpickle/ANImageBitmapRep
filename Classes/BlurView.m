@@ -11,11 +11,8 @@
 
 @implementation BlurView
 
-
 - (id)initWithFrame:(CGRect)frame {
-    
-    self = [super initWithFrame:frame];
-    if (self) {
+    if ((self = [super initWithFrame:frame])) {
         // Initialization code.
     }
     return self;
@@ -26,9 +23,6 @@
 	[self setNeedsDisplay];
 }
 
-
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code.
 	if (!image) {
@@ -37,14 +31,16 @@
 	ANImageBitmapRep * blurred = [[ANImageBitmapRep alloc] initWithImage:[image image]];
 	[blurred setQuality:(1 - blur)];
 	[[blurred image] drawInRect:self.bounds];
+#if __has_feature(objc_arc) != 1	
 	[blurred release];
+#endif
 }
 
-
+#if __has_feature(objc_arc) != 1
 - (void)dealloc {
     [image release];
 	[super dealloc];
 }
-
+#endif
 
 @end

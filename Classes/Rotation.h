@@ -12,7 +12,11 @@
 @interface Rotation : UIViewController {
 	IBOutlet UIImageView * rotatedImage;
 	IBOutlet UISlider * angle;
+#if __has_feature(objc_arc) == 1
+	__strong ANImageBitmapRep * rotateMe;
+#else
 	ANImageBitmapRep * rotateMe;
+#endif
 }
 
 - (IBAction)rotation:(id)sender;

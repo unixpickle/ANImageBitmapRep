@@ -78,12 +78,13 @@
      */
 }
 
-
+#if __has_feature(objc_arc) != 1
 - (void)dealloc {
 	[navigationController release];
 	[window release];
 	[super dealloc];
 }
+#endif
 
 
 @end

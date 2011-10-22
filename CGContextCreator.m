@@ -128,8 +128,10 @@
     return context;	
 }
 
+#if __has_feature(objc_arc) != 1
 - (void)dealloc {
     [super dealloc];
 }
+#endif
 
 @end

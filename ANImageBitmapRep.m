@@ -41,6 +41,15 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 	[self doesNotRecognizeSelector:[anInvocation selector]];
 }
 
+#if __has_feature(objc_arc) == 1
++ (ANImageBitmapRep *)imageBitmapRepWithCGSize:(CGSize)avgSize {
+	return [[ANImageBitmapRep alloc] initWithSize:BMPointMake(round(avgSize.width), round(avgSize.height))];
+}
+
++ (ANImageBitmapRep *)imageBitmapRepWithImage:(UIImage *)anImage {
+	return [[ANImageBitmapRep alloc] initWithImage:anImage];
+}
+#else
 + (ANImageBitmapRep *)imageBitmapRepWithCGSize:(CGSize)avgSize {
 	return [[[ANImageBitmapRep alloc] initWithSize:BMPointMake(round(avgSize.width), round(avgSize.height))] autorelease];
 }
@@ -48,6 +57,7 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 + (ANImageBitmapRep *)imageBitmapRepWithImage:(UIImage *)anImage {
 	return [[[ANImageBitmapRep alloc] initWithImage:anImage] autorelease];
 }
+#endif
 
 - (void)invertColors {
 	UInt8 pixel[4];
@@ -115,13 +125,23 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 }
 
 - (UIImage *)image {
+#if __has_feature(objc_arc) == 1
+	return [[UIImage alloc] initWithCGImage:[self CGImage]];
+#else
 	return [[[UIImage alloc] initWithCGImage:[self CGImage]] autorelease];
+#endif
 }
 
+#if __has_feature(objc_arc) != 1
 - (void)dealloc {
 	[baseClasses release];
 	[super dealloc];
 }
+#else
+- (void)dealloc {
+	NSLog(@"ANImageBitmapRep: dealloc");
+}
+#endif
 
 #pragma mark Base Classes
 
@@ -130,9 +150,11 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 	BitmapScaleManipulator * scalable = [[BitmapScaleManipulator alloc] initWithContext:self];
 	BitmapRotationManipulator * rotatable = [[BitmapRotationManipulator alloc] initWithContext:self];
 	baseClasses = [[NSArray alloc] initWithObjects:croppable, scalable, rotatable, nil];
+#if __has_feature(objc_arc) != 1
 	[rotatable release];
 	[scalable release];
 	[croppable release];
+#endif
 }
 
 @end

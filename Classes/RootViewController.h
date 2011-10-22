@@ -15,7 +15,11 @@
 #import "GetPixel.h"
 
 @interface RootViewController : UITableViewController {
+#if __has_feature(objc_arc) == 1
+	__strong NSArray * views;
+#else
 	NSArray * views;
+#endif
 }
 
 @end

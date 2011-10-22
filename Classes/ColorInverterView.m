@@ -31,17 +31,20 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code.
 	if (!image) {
+#if __has_feature(objc_arc) == 1
+		image = [ANImageBitmapRep imageBitmapRepWithImage:[UIImage imageNamed:@"inverter.png"]];
+#else
 		image = [[ANImageBitmapRep imageBitmapRepWithImage:[UIImage imageNamed:@"inverter.png"]] retain];
+#endif
 	}
 	[(UIImage *)[image image] drawInRect:self.bounds];
 }
 
-
-
+#if __has_feature(objc_arc) != 1
 - (void)dealloc {
 	if (image) [image release];
     [super dealloc];
 }
-
+#endif
 
 @end

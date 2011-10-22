@@ -48,9 +48,15 @@
 	CGContextDrawImage(newBitmap, CGRectMake(offset.x, offset.y, size.x, size.y), [bitmapContext CGImage]);
 	CGImageRef image = CGBitmapContextCreateImage(newBitmap);
 	CGContextRelease(newBitmap);
+#if __has_feature(objc_arc) == 1
+	CGImageRef retainedAutorelease = (__bridge CGImageRef)CGImageReturnAutoreleased(image);
+	CGImageRelease(image);
+	return retainedAutorelease;
+#else
 	CGImageContainer * container = [CGImageContainer imageContainerWithImage:image];
 	CGImageRelease(image);
 	return [container image];
+#endif
 }
 
 @end

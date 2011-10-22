@@ -23,11 +23,20 @@ BMPixel BMPixelMake (CGFloat red, CGFloat green, CGFloat blue, CGFloat alpha);
 UIColor * UIColorFromBMPixel (BMPixel pixel);
 
 @interface ANImageBitmapRep : BitmapContextRep <BitmapScaleManipulator, BitmapCropManipulator, BitmapRotationManipulator> {
-    NSArray * baseClasses;
+#if __has_feature(objc_arc) == 1
+	__strong NSArray * baseClasses;
+#else
+	NSArray * baseClasses;
+#endif
 }
 
+#if __has_feature(objc_arc) == 1
++ (ANImageBitmapRep *)imageBitmapRepWithCGSize:(CGSize)avgSize __attribute__((ns_returns_autoreleased));
++ (ANImageBitmapRep *)imageBitmapRepWithImage:(UIImage *)anImage __attribute__((ns_returns_autoreleased));
+#else
 + (ANImageBitmapRep *)imageBitmapRepWithCGSize:(CGSize)avgSize;
 + (ANImageBitmapRep *)imageBitmapRepWithImage:(UIImage *)anImage;
+#endif
 
 /**
  * Reverses the RGB values of all pixels in the bitmap.  This causes
@@ -72,6 +81,10 @@ UIColor * UIColorFromBMPixel (BMPixel pixel);
 /**
  * Creates a new UIImage from the bitmap context.
  */
+#if __has_feature(objc_arc) == 1
+- (UIImage *)image __attribute__((ns_returns_autoreleased));
+#else
 - (UIImage *)image;
+#endif
 
 @end

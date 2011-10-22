@@ -31,7 +31,11 @@
 	CGPoint points[2];
 	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
 	if (!bitmap) {
+#if __has_feature(objc_arc) == 1
+		bitmap = [ANImageBitmapRep imageBitmapRepWithCGSize:[self frame].size];
+#else
 		bitmap = [[ANImageBitmapRep imageBitmapRepWithCGSize:[self frame].size] retain];
+#endif
 	}
 	CGPoint p = [[touches anyObject] locationInView:self];
 	p.y = self.frame.size.height - p.y;
@@ -59,11 +63,11 @@
 	}
 }
 
-
+#if __has_feature(objc_arc) != 1
 - (void)dealloc {
 	[bitmap release];
     [super dealloc];
 }
-
+#endif
 
 @end

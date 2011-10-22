@@ -6,6 +6,8 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#if __has_feature(objc_arc) != 1
+
 #import "CGImageContainer.h"
 
 
@@ -31,3 +33,13 @@
 }
 
 @end
+
+#else
+
+__attribute__((ns_returns_autoreleased))
+id CGImageReturnAutoreleased (CGImageRef original) {
+	// CGImageRetain(original);
+	return (__bridge id)original;
+}
+
+#endif

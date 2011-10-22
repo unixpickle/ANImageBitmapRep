@@ -9,9 +9,17 @@
 #import <UIKit/UIKit.h>
 
 int main(int argc, char *argv[]) {
-    
+	int retVal;
+#if __has_feature(objc_arc) == 1
+	@autoreleasepool {
+#else
     NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, nil, nil);
-    [pool release];
-    return retVal;
+#endif
+	retVal = UIApplicationMain(argc, argv, nil, nil);
+#if __has_feature(objc_arc) == 1
+	}
+#else
+	[pool drain];
+#endif
+	return retVal;
 }

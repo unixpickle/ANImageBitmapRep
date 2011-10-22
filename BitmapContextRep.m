@@ -101,7 +101,11 @@ BMPoint BMPointFromPoint (CGPoint point) {
 		lastImage = CGBitmapContextCreateImage(context);
 		needsUpdate = NO;
 	}
+#if __has_feature(objc_arc) == 1
+	return (__bridge CGImageRef)CGImageReturnAutoreleased(lastImage);
+#else
 	return (CGImageRef)[[CGImageContainer imageContainerWithImage:lastImage] image];
+#endif
 }
 
 - (void)dealloc {
@@ -110,7 +114,9 @@ BMPoint BMPointFromPoint (CGPoint point) {
 	if (lastImage != NULL) {
 		CGImageRelease(lastImage);
 	}
+#if __has_feature(objc_arc) != 1
 	[super dealloc];
+#endif
 }
 
 @end

@@ -157,9 +157,15 @@ static CGPoint locationForAngle (CGFloat angle, CGFloat hypotenuse) {
 	void * buff = CGBitmapContextGetData(newContext);
 	CGContextRelease(newContext);
 	free(buff);
+#if __has_feature(objc_arc) == 1
+	id retainedImage = CGImageReturnAutoreleased(image);
+	CGImageRelease(image);
+	return (__bridge CGImageRef)retainedImage;
+#else
 	CGImageContainer * container = [CGImageContainer imageContainerWithImage:image];
 	CGImageRelease(image);
 	return [container image];
+#endif
 }
 
 @end

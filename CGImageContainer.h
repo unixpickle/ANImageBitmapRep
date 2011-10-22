@@ -6,6 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+
+#if __has_feature(objc_arc) != 1
+
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 
@@ -39,3 +42,9 @@
 + (CGImageContainer *)imageContainerWithImage:(CGImageRef)anImage;
 
 @end
+
+#else
+
+id CGImageReturnAutoreleased (CGImageRef original) __attribute__((ns_returns_autoreleased));
+
+#endif

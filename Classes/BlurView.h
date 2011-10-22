@@ -10,7 +10,11 @@
 #import "ANImageBitmapRep.h"
 
 @interface BlurView : UIView {
+#if __has_feature(objc_arc) == 1
+	__strong ANImageBitmapRep * image;
+#else
 	ANImageBitmapRep * image;
+#endif
 	float blur;
 }
 

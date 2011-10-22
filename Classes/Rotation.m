@@ -32,11 +32,20 @@
 
 
 - (IBAction)rotation:(id)sender {
+#if __has_feature(objc_arc) == 1
+	@autoreleasepool {
+#else
 	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+#endif
+	// [rotateMe imageByRotating:[angle value]];
 	UIImage * rotated = [[UIImage alloc] initWithCGImage:[rotateMe imageByRotating:[angle value]]];
 	[rotatedImage setImage:rotated];
+#if __has_feature(objc_arc) == 1
+	}
+#else
 	[rotated release];
 	[pool drain];
+#endif
 }
 
 /*
@@ -60,11 +69,11 @@
     // e.g. self.myOutlet = nil;
 }
 
-
+#if __has_feature(objc_arc) != 1
 - (void)dealloc {
 	[rotateMe release];
     [super dealloc];
 }
-
+#endif
 
 @end

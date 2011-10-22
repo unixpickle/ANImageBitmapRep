@@ -14,15 +14,19 @@
 @synthesize delegate;
 
 - (id)initWithFrame:(CGRect)frame {
-    if ((self = [super initWithFrame:frame])) {
-        // Initialization code
-    }
-    return self;
+	if ((self = [super initWithFrame:frame])) {
+		// Initialization code
+	}
+	return self;
 }
 
 - (id)initWithFrame:(CGRect)frame image:(ANImageBitmapRep *)theImage {
 	if ((self = [super initWithFrame:frame])) {
+#if __has_feature(objc_arc) == 1
+		image = theImage;
+#else
 		image = [theImage retain];
+#endif
 	}
 	return self;
 }
@@ -53,10 +57,11 @@
 	[[image image] drawInRect:rect];
 }
 
-
+#if __has_feature(objc_arc) != 1
 - (void)dealloc {
 	[image release];
     [super dealloc];
 }
+#endif
 
 @end
