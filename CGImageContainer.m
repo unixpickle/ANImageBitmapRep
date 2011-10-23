@@ -6,10 +6,9 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#if __has_feature(objc_arc) != 1
-
 #import "CGImageContainer.h"
 
+#if __has_feature(objc_arc) != 1
 
 @implementation CGImageContainer
 

@@ -6,6 +6,8 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#if TARGET_OS_IPHONE
+
 @class ANImageBitmapRep;
 
 #import <UIKit/UIKit.h>
@@ -27,3 +29,5 @@
 #endif
 
 @end
+
+#endif

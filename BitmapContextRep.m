@@ -25,9 +25,9 @@ BMPoint BMPointFromPoint (CGPoint point) {
 
 @implementation BitmapContextRep
 
-- (id)initWithImage:(UIImage *)image {
+- (id)initWithImage:(ANImageObj *)image {
 	if ((self = [super init])) {
-		context = [CGContextCreator newARGBBitmapContextWithImage:[image CGImage]];
+		context = [CGContextCreator newARGBBitmapContextWithImage:CGImageFromANImage(image)];
 		bitmapData = CGBitmapContextGetData(context);
 		lastImage = CGBitmapContextCreateImage(context);
 	}

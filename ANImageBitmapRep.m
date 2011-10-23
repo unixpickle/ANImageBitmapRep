@@ -17,9 +17,15 @@ BMPixel BMPixelMake (CGFloat red, CGFloat green, CGFloat blue, CGFloat alpha) {
 	return pixel;
 }
 
+#if TARGET_OS_IPHONE
 UIColor * UIColorFromBMPixel (BMPixel pixel) {
 	return [UIColor colorWithRed:pixel.red green:pixel.green blue:pixel.blue alpha:pixel.alpha];
 }
+#elif TARGET_OS_MAC
+NSColor * NSColorFromBMPixel (BMPixel pixel) {
+	return [NSColor colorWithCalibratedRed:pixel.red green:pixel.green blue:pixel.blue alpha:pixel.alpha];
+}
+#endif
 
 @interface ANImageBitmapRep (BaseClasses)
 
@@ -46,7 +52,7 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 	return [[ANImageBitmapRep alloc] initWithSize:BMPointMake(round(avgSize.width), round(avgSize.height))];
 }
 
-+ (ANImageBitmapRep *)imageBitmapRepWithImage:(UIImage *)anImage {
++ (ANImageBitmapRep *)imageBitmapRepWithImage:(ANImageObj *)anImage {
 	return [[ANImageBitmapRep alloc] initWithImage:anImage];
 }
 #else
@@ -54,7 +60,7 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 	return [[[ANImageBitmapRep alloc] initWithSize:BMPointMake(round(avgSize.width), round(avgSize.height))] autorelease];
 }
 
-+ (ANImageBitmapRep *)imageBitmapRepWithImage:(UIImage *)anImage {
++ (ANImageBitmapRep *)imageBitmapRepWithImage:(ANImageObj *)anImage {
 	return [[[ANImageBitmapRep alloc] initWithImage:anImage] autorelease];
 }
 #endif
@@ -124,22 +130,14 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 	[self setRawPixel:rawPixel atPoint:point];
 }
 
-- (UIImage *)image {
-#if __has_feature(objc_arc) == 1
-	return [[UIImage alloc] initWithCGImage:[self CGImage]];
-#else
-	return [[[UIImage alloc] initWithCGImage:[self CGImage]] autorelease];
-#endif
+- (ANImageObj *)image {
+	return ANImageFromCGImage([self CGImage]);
 }
 
 #if __has_feature(objc_arc) != 1
 - (void)dealloc {
 	[baseClasses release];
 	[super dealloc];
-}
-#else
-- (void)dealloc {
-	NSLog(@"ANImageBitmapRep: dealloc");
 }
 #endif
 
@@ -155,6 +153,17 @@ UIColor * UIColorFromBMPixel (BMPixel pixel) {
 	[scalable release];
 	[croppable release];
 #endif
+}
+
+#pragma mark NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+	BMPoint size = [self bitmapSize];
+	ANImageBitmapRep * rep = [[ANImageBitmapRep allocWithZone:zone] initWithSize:size];
+	CGContextRef newContext = [rep context];
+	CGContextDrawImage(newContext, CGRectMake(0, 0, size.x, size.y), [self CGImage]);
+	[rep setNeedsUpdate:YES];
+	return rep;
 }
 
 @end

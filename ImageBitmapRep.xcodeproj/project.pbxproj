@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,27 @@
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 		28F335F11007B36200424DE2 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F335F01007B36200424DE2 /* RootViewController.xib */; };
+		FA20F00A145463640016E5DF /* OSCommonImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FA20F009145463640016E5DF /* OSCommonImage.m */; };
+		FA20F00E14546C720016E5DF /* NSImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA20F00D14546C720016E5DF /* NSImage+ANImageBitmapRep.m */; };
+		FA20F0161454723B0016E5DF /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA20F0151454723B0016E5DF /* Cocoa.framework */; };
+		FA20F0201454723C0016E5DF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA20F01E1454723B0016E5DF /* InfoPlist.strings */; };
+		FA20F0221454723C0016E5DF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA20F0211454723C0016E5DF /* main.m */; };
+		FA20F0261454723C0016E5DF /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = FA20F0241454723C0016E5DF /* Credits.rtf */; };
+		FA20F0291454723C0016E5DF /* ANAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA20F0281454723C0016E5DF /* ANAppDelegate.m */; };
+		FA20F02C1454723C0016E5DF /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA20F02A1454723C0016E5DF /* MainMenu.xib */; };
+		FA20F033145478B80016E5DF /* ANDemoView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA20F031145478730016E5DF /* ANDemoView.m */; };
+		FA20F034145478D40016E5DF /* OSCommonImage.m in Sources */ = {isa = PBXBuildFile; fileRef = FA20F009145463640016E5DF /* OSCommonImage.m */; };
+		FA20F035145478D40016E5DF /* UIImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA41039713F4D17200236F26 /* UIImage+ANImageBitmapRep.m */; };
+		FA20F036145478D40016E5DF /* NSImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA20F00D14546C720016E5DF /* NSImage+ANImageBitmapRep.m */; };
+		FA20F037145478D40016E5DF /* CGImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8713CCE096003E95FE /* CGImageContainer.m */; };
+		FA20F038145478D40016E5DF /* CGContextCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8913CCE096003E95FE /* CGContextCreator.m */; };
+		FA20F039145478D40016E5DF /* BitmapContextManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA359E3B1448CFC500F97552 /* BitmapContextManipulator.m */; };
+		FA20F03A145478D40016E5DF /* BitmapScaleManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8113CCE096003E95FE /* BitmapScaleManipulator.m */; };
+		FA20F03B145478D40016E5DF /* BitmapCropManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8313CCE096003E95FE /* BitmapCropManipulator.m */; };
+		FA20F03C145478D40016E5DF /* BitmapRotationManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8513CCE096003E95FE /* BitmapRotationManipulator.m */; };
+		FA20F03D145478D40016E5DF /* BitmapContextRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C7D13CCE096003E95FE /* BitmapContextRep.m */; };
+		FA20F03E145478D40016E5DF /* ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C7F13CCE096003E95FE /* ANImageBitmapRep.m */; };
+		FA20F04214547D1D0016E5DF /* ANBlurDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = FA20F04014547A1E0016E5DF /* ANBlurDemo.m */; };
 		FA225C8A13CCE096003E95FE /* BitmapContextRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C7D13CCE096003E95FE /* BitmapContextRep.m */; };
 		FA225C8B13CCE096003E95FE /* ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C7F13CCE096003E95FE /* ANImageBitmapRep.m */; };
 		FA225C8C13CCE096003E95FE /* BitmapScaleManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8113CCE096003E95FE /* BitmapScaleManipulator.m */; };
@@ -22,6 +43,12 @@
 		FA225C8E13CCE096003E95FE /* BitmapRotationManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8513CCE096003E95FE /* BitmapRotationManipulator.m */; };
 		FA225C8F13CCE096003E95FE /* CGImageContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8713CCE096003E95FE /* CGImageContainer.m */; };
 		FA225C9013CCE096003E95FE /* CGContextCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA225C8913CCE096003E95FE /* CGContextCreator.m */; };
+		FA26BD311454804E0066422D /* starrynight.png in Resources */ = {isa = PBXBuildFile; fileRef = FA52178D130B2A780065A0FE /* starrynight.png */; };
+		FA26BD351454853D0066422D /* inverter.png in Resources */ = {isa = PBXBuildFile; fileRef = FA52172C130B241D0065A0FE /* inverter.png */; };
+		FA26BD361454865F0066422D /* ANInverterDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26BD33145485160066422D /* ANInverterDemo.m */; };
+		FA26BD3814548A9C0066422D /* blurtest.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FA26BD3714548A9C0066422D /* blurtest.jpeg */; };
+		FA26BD3914548A9C0066422D /* blurtest.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = FA26BD3714548A9C0066422D /* blurtest.jpeg */; };
+		FA26BD3D14548C0B0066422D /* ANNoiseDemo.m in Sources */ = {isa = PBXBuildFile; fileRef = FA26BD3B14548C0B0066422D /* ANNoiseDemo.m */; };
 		FA359E3C1448CFC500F97552 /* BitmapContextManipulator.m in Sources */ = {isa = PBXBuildFile; fileRef = FA359E3B1448CFC500F97552 /* BitmapContextManipulator.m */; };
 		FA41039813F4D17200236F26 /* UIImage+ANImageBitmapRep.m in Sources */ = {isa = PBXBuildFile; fileRef = FA41039713F4D17200236F26 /* UIImage+ANImageBitmapRep.m */; };
 		FA5216DE130B21E80065A0FE /* ColorInverter.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5216DC130B21E80065A0FE /* ColorInverter.m */; };
@@ -59,6 +86,27 @@
 		28F335F01007B36200424DE2 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8D1107310486CEB800E47090 /* ImageBitmapRep-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ImageBitmapRep-Info.plist"; plistStructureDefinitionIdentifier = "com.apple.xcode.plist.structure-definition.iphone.info-plist"; sourceTree = "<group>"; };
+		FA20F008145456840016E5DF /* OSCommonImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSCommonImage.h; sourceTree = "<group>"; };
+		FA20F009145463640016E5DF /* OSCommonImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSCommonImage.m; sourceTree = "<group>"; };
+		FA20F00C14546C720016E5DF /* NSImage+ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSImage+ANImageBitmapRep.h"; sourceTree = "<group>"; };
+		FA20F00D14546C720016E5DF /* NSImage+ANImageBitmapRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSImage+ANImageBitmapRep.m"; sourceTree = "<group>"; };
+		FA20F0131454723B0016E5DF /* MacImageRep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacImageRep.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA20F0151454723B0016E5DF /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		FA20F0181454723B0016E5DF /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		FA20F0191454723B0016E5DF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FA20F01A1454723B0016E5DF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		FA20F01D1454723B0016E5DF /* MacImageRep-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MacImageRep-Info.plist"; sourceTree = "<group>"; };
+		FA20F01F1454723B0016E5DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		FA20F0211454723C0016E5DF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FA20F0231454723C0016E5DF /* MacImageRep-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MacImageRep-Prefix.pch"; sourceTree = "<group>"; };
+		FA20F0251454723C0016E5DF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		FA20F0271454723C0016E5DF /* ANAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ANAppDelegate.h; sourceTree = "<group>"; };
+		FA20F0281454723C0016E5DF /* ANAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ANAppDelegate.m; sourceTree = "<group>"; };
+		FA20F02B1454723C0016E5DF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		FA20F030145478730016E5DF /* ANDemoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANDemoView.h; sourceTree = "<group>"; };
+		FA20F031145478730016E5DF /* ANDemoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANDemoView.m; sourceTree = "<group>"; };
+		FA20F03F14547A1E0016E5DF /* ANBlurDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANBlurDemo.h; sourceTree = "<group>"; };
+		FA20F04014547A1E0016E5DF /* ANBlurDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANBlurDemo.m; sourceTree = "<group>"; };
 		FA225C7C13CCE096003E95FE /* BitmapContextRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapContextRep.h; sourceTree = "<group>"; };
 		FA225C7D13CCE096003E95FE /* BitmapContextRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapContextRep.m; sourceTree = "<group>"; };
 		FA225C7E13CCE096003E95FE /* ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANImageBitmapRep.h; sourceTree = "<group>"; };
@@ -73,6 +121,11 @@
 		FA225C8713CCE096003E95FE /* CGImageContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGImageContainer.m; sourceTree = "<group>"; };
 		FA225C8813CCE096003E95FE /* CGContextCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGContextCreator.h; sourceTree = "<group>"; };
 		FA225C8913CCE096003E95FE /* CGContextCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGContextCreator.m; sourceTree = "<group>"; };
+		FA26BD32145485160066422D /* ANInverterDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANInverterDemo.h; sourceTree = "<group>"; };
+		FA26BD33145485160066422D /* ANInverterDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANInverterDemo.m; sourceTree = "<group>"; };
+		FA26BD3714548A9C0066422D /* blurtest.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blurtest.jpeg; sourceTree = "<group>"; };
+		FA26BD3A14548C0B0066422D /* ANNoiseDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ANNoiseDemo.h; sourceTree = "<group>"; };
+		FA26BD3B14548C0B0066422D /* ANNoiseDemo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ANNoiseDemo.m; sourceTree = "<group>"; };
 		FA359E3A1448CFC500F97552 /* BitmapContextManipulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BitmapContextManipulator.h; sourceTree = "<group>"; };
 		FA359E3B1448CFC500F97552 /* BitmapContextManipulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BitmapContextManipulator.m; sourceTree = "<group>"; };
 		FA41039613F4D17200236F26 /* UIImage+ANImageBitmapRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ANImageBitmapRep.h"; sourceTree = "<group>"; };
@@ -119,6 +172,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA20F0101454723B0016E5DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA20F0161454723B0016E5DF /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -138,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				1D6058910D05DD3D006BFB54 /* ImageBitmapRep.app */,
+				FA20F0131454723B0016E5DF /* MacImageRep.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -149,6 +211,7 @@
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				FA20F01B1454723B0016E5DF /* MacImageRep */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -181,8 +244,64 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
+				FA20F0151454723B0016E5DF /* Cocoa.framework */,
+				FA20F0171454723B0016E5DF /* Other Frameworks */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FA20F00B14546C570016E5DF /* Compatibility */ = {
+			isa = PBXGroup;
+			children = (
+				FA20F008145456840016E5DF /* OSCommonImage.h */,
+				FA20F009145463640016E5DF /* OSCommonImage.m */,
+				FA41039613F4D17200236F26 /* UIImage+ANImageBitmapRep.h */,
+				FA41039713F4D17200236F26 /* UIImage+ANImageBitmapRep.m */,
+				FA20F00C14546C720016E5DF /* NSImage+ANImageBitmapRep.h */,
+				FA20F00D14546C720016E5DF /* NSImage+ANImageBitmapRep.m */,
+			);
+			name = Compatibility;
+			sourceTree = "<group>";
+		};
+		FA20F0171454723B0016E5DF /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA20F0181454723B0016E5DF /* AppKit.framework */,
+				FA20F0191454723B0016E5DF /* CoreData.framework */,
+				FA20F01A1454723B0016E5DF /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		FA20F01B1454723B0016E5DF /* MacImageRep */ = {
+			isa = PBXGroup;
+			children = (
+				FA20F0271454723C0016E5DF /* ANAppDelegate.h */,
+				FA20F0281454723C0016E5DF /* ANAppDelegate.m */,
+				FA20F030145478730016E5DF /* ANDemoView.h */,
+				FA20F031145478730016E5DF /* ANDemoView.m */,
+				FA20F03F14547A1E0016E5DF /* ANBlurDemo.h */,
+				FA20F04014547A1E0016E5DF /* ANBlurDemo.m */,
+				FA26BD32145485160066422D /* ANInverterDemo.h */,
+				FA26BD33145485160066422D /* ANInverterDemo.m */,
+				FA26BD3A14548C0B0066422D /* ANNoiseDemo.h */,
+				FA26BD3B14548C0B0066422D /* ANNoiseDemo.m */,
+				FA20F02A1454723C0016E5DF /* MainMenu.xib */,
+				FA20F01C1454723B0016E5DF /* Supporting Files */,
+			);
+			path = MacImageRep;
+			sourceTree = "<group>";
+		};
+		FA20F01C1454723B0016E5DF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FA20F01D1454723B0016E5DF /* MacImageRep-Info.plist */,
+				FA20F01E1454723B0016E5DF /* InfoPlist.strings */,
+				FA20F0211454723C0016E5DF /* main.m */,
+				FA20F0231454723C0016E5DF /* MacImageRep-Prefix.pch */,
+				FA20F0241454723C0016E5DF /* Credits.rtf */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		FA225C9113CCE09A003E95FE /* Core Graphics */ = {
@@ -214,14 +333,13 @@
 		FA5216C2130B21140065A0FE /* ANImageBitmapRep */ = {
 			isa = PBXGroup;
 			children = (
+				FA20F00B14546C570016E5DF /* Compatibility */,
 				FA225C9113CCE09A003E95FE /* Core Graphics */,
 				FA225C9213CCE0A8003E95FE /* Manipulations */,
 				FA225C7C13CCE096003E95FE /* BitmapContextRep.h */,
 				FA225C7D13CCE096003E95FE /* BitmapContextRep.m */,
 				FA225C7E13CCE096003E95FE /* ANImageBitmapRep.h */,
 				FA225C7F13CCE096003E95FE /* ANImageBitmapRep.m */,
-				FA41039613F4D17200236F26 /* UIImage+ANImageBitmapRep.h */,
-				FA41039713F4D17200236F26 /* UIImage+ANImageBitmapRep.m */,
 			);
 			name = ANImageBitmapRep;
 			sourceTree = "<group>";
@@ -242,6 +360,7 @@
 		FA52172E130B24220065A0FE /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				FA26BD3714548A9C0066422D /* blurtest.jpeg */,
 				FA56559513E3791A001BF6A6 /* wheel.png */,
 				FA52178D130B2A780065A0FE /* starrynight.png */,
 				FA52172C130B241D0065A0FE /* inverter.png */,
@@ -345,13 +464,33 @@
 			productReference = 1D6058910D05DD3D006BFB54 /* ImageBitmapRep.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FA20F0121454723B0016E5DF /* MacImageRep */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA20F02D1454723C0016E5DF /* Build configuration list for PBXNativeTarget "MacImageRep" */;
+			buildPhases = (
+				FA20F00F1454723B0016E5DF /* Sources */,
+				FA20F0101454723B0016E5DF /* Frameworks */,
+				FA20F0111454723B0016E5DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MacImageRep;
+			productName = MacImageRep;
+			productReference = FA20F0131454723B0016E5DF /* MacImageRep.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "ImageBitmapRep" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -366,6 +505,7 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* ImageBitmapRep */,
+				FA20F0121454723B0016E5DF /* MacImageRep */,
 			);
 		};
 /* End PBXProject section */
@@ -386,6 +526,20 @@
 				FA5D8D71130F6D1100E524A8 /* Rotation.xib in Resources */,
 				FA5D8D73130F6DC000E524A8 /* rotate_me.png in Resources */,
 				FA56559613E3791A001BF6A6 /* wheel.png in Resources */,
+				FA26BD3814548A9C0066422D /* blurtest.jpeg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA20F0111454723B0016E5DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA20F0201454723C0016E5DF /* InfoPlist.strings in Resources */,
+				FA20F0261454723C0016E5DF /* Credits.rtf in Resources */,
+				FA26BD311454804E0066422D /* starrynight.png in Resources */,
+				FA26BD351454853D0066422D /* inverter.png in Resources */,
+				FA20F02C1454723C0016E5DF /* MainMenu.xib in Resources */,
+				FA26BD3914548A9C0066422D /* blurtest.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,10 +572,63 @@
 				FA56558E13E377AE001BF6A6 /* GetPixelDemo.m in Sources */,
 				FA41039813F4D17200236F26 /* UIImage+ANImageBitmapRep.m in Sources */,
 				FA359E3C1448CFC500F97552 /* BitmapContextManipulator.m in Sources */,
+				FA20F00A145463640016E5DF /* OSCommonImage.m in Sources */,
+				FA20F00E14546C720016E5DF /* NSImage+ANImageBitmapRep.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA20F00F1454723B0016E5DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA20F0221454723C0016E5DF /* main.m in Sources */,
+				FA20F0291454723C0016E5DF /* ANAppDelegate.m in Sources */,
+				FA20F033145478B80016E5DF /* ANDemoView.m in Sources */,
+				FA20F04214547D1D0016E5DF /* ANBlurDemo.m in Sources */,
+				FA26BD361454865F0066422D /* ANInverterDemo.m in Sources */,
+				FA20F034145478D40016E5DF /* OSCommonImage.m in Sources */,
+				FA20F035145478D40016E5DF /* UIImage+ANImageBitmapRep.m in Sources */,
+				FA20F036145478D40016E5DF /* NSImage+ANImageBitmapRep.m in Sources */,
+				FA20F037145478D40016E5DF /* CGImageContainer.m in Sources */,
+				FA20F038145478D40016E5DF /* CGContextCreator.m in Sources */,
+				FA20F039145478D40016E5DF /* BitmapContextManipulator.m in Sources */,
+				FA20F03A145478D40016E5DF /* BitmapScaleManipulator.m in Sources */,
+				FA20F03B145478D40016E5DF /* BitmapCropManipulator.m in Sources */,
+				FA20F03C145478D40016E5DF /* BitmapRotationManipulator.m in Sources */,
+				FA20F03D145478D40016E5DF /* BitmapContextRep.m in Sources */,
+				FA20F03E145478D40016E5DF /* ANImageBitmapRep.m in Sources */,
+				FA26BD3D14548C0B0066422D /* ANNoiseDemo.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FA20F01E1454723B0016E5DF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA20F01F1454723B0016E5DF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		FA20F0241454723C0016E5DF /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA20F0251454723C0016E5DF /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		FA20F02A1454723C0016E5DF /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA20F02B1454723C0016E5DF /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
@@ -460,7 +667,6 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -475,8 +681,66 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PREBINDING = NO;
 				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		FA20F02E1454723C0016E5DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MacImageRep/MacImageRep-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "MacImageRep/MacImageRep-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		FA20F02F1454723C0016E5DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MacImageRep/MacImageRep-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				INFOPLIST_FILE = "MacImageRep/MacImageRep-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -497,6 +761,15 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA20F02D1454723C0016E5DF /* Build configuration list for PBXNativeTarget "MacImageRep" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA20F02E1454723C0016E5DF /* Debug */,
+				FA20F02F1454723C0016E5DF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

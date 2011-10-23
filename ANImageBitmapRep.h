@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "OSCommonImage.h"
 #import "BitmapScaleManipulator.h"
 #import "BitmapCropManipulator.h"
 #import "BitmapRotationManipulator.h"
@@ -20,9 +20,13 @@ typedef struct {
 } BMPixel;
 
 BMPixel BMPixelMake (CGFloat red, CGFloat green, CGFloat blue, CGFloat alpha);
+#if TARGET_OS_IPHONE
 UIColor * UIColorFromBMPixel (BMPixel pixel);
+#elif TARGET_OS_MAC
+NSColor * NSColorFromBMPixel (BMPixel pixel);
+#endif
 
-@interface ANImageBitmapRep : BitmapContextRep <BitmapScaleManipulator, BitmapCropManipulator, BitmapRotationManipulator> {
+@interface ANImageBitmapRep : BitmapContextRep <BitmapScaleManipulator, BitmapCropManipulator, BitmapRotationManipulator, NSCopying> {
 #if __has_feature(objc_arc) == 1
 	__strong NSArray * baseClasses;
 #else
@@ -32,10 +36,10 @@ UIColor * UIColorFromBMPixel (BMPixel pixel);
 
 #if __has_feature(objc_arc) == 1
 + (ANImageBitmapRep *)imageBitmapRepWithCGSize:(CGSize)avgSize __attribute__((ns_returns_autoreleased));
-+ (ANImageBitmapRep *)imageBitmapRepWithImage:(UIImage *)anImage __attribute__((ns_returns_autoreleased));
++ (ANImageBitmapRep *)imageBitmapRepWithImage:(ANImageObj *)anImage __attribute__((ns_returns_autoreleased));
 #else
 + (ANImageBitmapRep *)imageBitmapRepWithCGSize:(CGSize)avgSize;
-+ (ANImageBitmapRep *)imageBitmapRepWithImage:(UIImage *)anImage;
++ (ANImageBitmapRep *)imageBitmapRepWithImage:(ANImageObj *)anImage;
 #endif
 
 /**
@@ -79,12 +83,12 @@ UIColor * UIColorFromBMPixel (BMPixel pixel);
 - (void)setPixel:(BMPixel)pixel atPoint:(BMPoint)point;
 
 /**
- * Creates a new UIImage from the bitmap context.
+ * Creates a new UIImage or NSImage from the bitmap context.
  */
 #if __has_feature(objc_arc) == 1
-- (UIImage *)image __attribute__((ns_returns_autoreleased));
+- (ANImageObj *)image __attribute__((ns_returns_autoreleased));
 #else
-- (UIImage *)image;
+- (ANImageObj *)image;
 #endif
 
 @end

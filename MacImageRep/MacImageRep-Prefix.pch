@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'MacImageRep' target in the 'MacImageRep' project
+//
+
+#ifdef __OBJC__
+	#import <Cocoa/Cocoa.h>
+#endif

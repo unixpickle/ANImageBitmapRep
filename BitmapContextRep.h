@@ -6,7 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "OSCommonImage.h"
 #import "CGImageContainer.h"
 #import "CGContextCreator.h"
 
@@ -40,7 +40,7 @@ BMPoint BMPointFromPoint (CGPoint point);
  * Creates a bitmap context with pixels and dimensions from an image.
  * @param image The image to wrap in a bitmap context.
  */
-- (id)initWithImage:(UIImage *)image;
+- (id)initWithImage:(ANImageObj *)image;
 
 /**
  * Creates a blank bitmap context with specified dimensions.
