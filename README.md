@@ -12,11 +12,15 @@ In July, 2011, I decided to re-structure my Image Bitmap Rep classes to be more 
 
 In October, 2011, someone challenged my implementation of ```ANImageBitmapRep```, demoting the cascading subclass architecture. They modified the code to use categories, all to have me deny their pull request. Instead, I refactored my code, creating a new structure for subclassing, etc. Now, composition is used for all *manipulators*, and ```ANImageBitmapRep``` simply forwards messages to any number of *manipulators*. This structure also allows you to work with a single manipulator, without worrying about any methods that may be on ANImageBitmapRep or other manipulators.
 
+Later that same month, Apple released Xcode 4.2 complete with Automatic Reference Counting. At this time I ported all of ANImageBitmapRep and the demos to work when compiled with and without ARC enabled. This was done using conditional statements along with the ```__has_feature(objc_arc)``` macro.
+
+Later that same weekend, I decided that, since the code was already cluttered with conditional statements, I might as well add Cocoa (Mac OS X) support. I created a Mac target with several demos similar to the iOS demos, and changed around a couple of methods to use a new type, ```ANImageObj```. When compiled for iOS, ```ANImageObj``` is actually a typedef of ```UIImage```, whereas it is ```NSImage``` for Mac targets.
+
 ## The Usage
 
 In order to use an ANImageBitmapRep for an image, you have to create one first.  This can be done either by using an existing UIImage, or creating a blank ANImageBitmapRep with given dimensions.  Both can be done through the following initializers:
 
-    - (id)initWithImage:(UIImage *)image;
+    - (id)initWithImage:(ANImageObj *)image;
     - (id)initWithSize:(BMPoint)sizePoint;
 
 Interacting with bitmap data has never been as easy as it should.  That's why ANImageBitmapRep provides simple functions to get and set individual pixels at any given location in the bitmap.  The BMPixel structure holds RGBA values, and is generally what is used for interacting with pixels.  For instance, getting the pixel at (0,0) on a bitmap looks something like this:
