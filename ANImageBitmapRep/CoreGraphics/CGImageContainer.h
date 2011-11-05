@@ -10,7 +10,12 @@
 #if __has_feature(objc_arc) != 1
 
 #import <Foundation/Foundation.h>
+
+#if TARGET_OS_IPHONE
 #import <CoreGraphics/CoreGraphics.h>
+#elif TARGET_OS_MAC
+#import <Quartz/Quartz.h>
+#endif
 
 
 @interface CGImageContainer : NSObject {
