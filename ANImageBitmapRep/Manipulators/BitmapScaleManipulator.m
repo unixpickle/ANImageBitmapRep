@@ -38,7 +38,7 @@
 	CGContextRef newContext = [CGContextCreator newARGBBitmapContextWithSize:CGSizeMake(aSize.x, aSize.y)];
 	CGContextDrawImage(newContext, CGRectMake(newSize.width / 2 - (newContentSize.width / 2),
 											  newSize.height / 2 - (newContentSize.height / 2),
-											  newSize.width, newContentSize.height), image);
+											  newContentSize.width, newContentSize.height), image);
 	[bitmapContext setContext:newContext];
 	CGContextRelease(newContext);
 }
@@ -62,7 +62,7 @@
 	CGContextRef newContext = [CGContextCreator newARGBBitmapContextWithSize:CGSizeMake(aSize.x, aSize.y)];
 	CGContextDrawImage(newContext, CGRectMake(newSize.width / 2 - (newContentSize.width / 2),
 											  newSize.height / 2 - (newContentSize.height / 2),
-											  newSize.width, newContentSize.height), image);
+											  newContentSize.width, newContentSize.height), image);
 	[bitmapContext setContext:newContext];
 	CGContextRelease(newContext);
 }
