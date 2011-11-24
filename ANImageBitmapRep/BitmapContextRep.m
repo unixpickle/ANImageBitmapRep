@@ -36,6 +36,14 @@ BMPoint BMPointFromPoint (CGPoint point) {
 
 - (id)initWithSize:(BMPoint)sizePoint {
 	if ((self = [super init])) {
+		if (sizePoint.x == 0 || sizePoint.y == 0) {
+#if __has_feature(objc_arc)
+			return nil;
+#else
+			[super dealloc];
+			return nil;
+#endif
+		}
 		context = [CGContextCreator newARGBBitmapContextWithSize:CGSizeMake(sizePoint.x, sizePoint.y)];
 		bitmapData = CGBitmapContextGetData(context);
 		lastImage = CGBitmapContextCreateImage(context);
