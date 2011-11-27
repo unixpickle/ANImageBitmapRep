@@ -19,6 +19,7 @@ CGImageRef CGImageFromANImage (ANImageObj * anImageObj) {
 	source = CGImageSourceCreateWithData((CFDataRef)[anImageObj TIFFRepresentation], NULL);
 #endif
 	CGImageRef maskRef = CGImageSourceCreateImageAtIndex(source, 0, NULL);
+	CFRelease(source);
 #if __has_feature(objc_arc) == 1
 	CGImageRef autoreleased = (__bridge CGImageRef)CGImageReturnAutoreleased(maskRef);
 	CGImageRelease(maskRef);
