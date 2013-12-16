@@ -10,7 +10,7 @@
 #import "ANImageBitmapRep.h"
 
 @interface ANNoiseDemo : ANDemoView {
-	NSImage * blurImage;
+    NSImage * blurImage;
 }
 
 @end

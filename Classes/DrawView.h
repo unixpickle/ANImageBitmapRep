@@ -11,11 +11,11 @@
 
 @interface DrawView : UIView {
 #if __has_feature(objc_arc) == 1
-	__strong ANImageBitmapRep * bitmap;
+    __strong ANImageBitmapRep * bitmap;
 #else
-	ANImageBitmapRep * bitmap;
+    ANImageBitmapRep * bitmap;
 #endif
-	CGPoint initial;
+    CGPoint initial;
 }
 
 @end

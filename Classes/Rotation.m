@@ -26,25 +26,25 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[self setTitle:@"Rotation"];
-	rotateMe = [[ANImageBitmapRep alloc] initWithImage:[UIImage imageNamed:@"rotate_me.png"]];
+    [self setTitle:@"Rotation"];
+    rotateMe = [[ANImageBitmapRep alloc] initWithImage:[UIImage imageNamed:@"rotate_me.png"]];
 }
 
 
 - (IBAction)rotation:(id)sender {
 #if __has_feature(objc_arc) == 1
-	@autoreleasepool {
+    @autoreleasepool {
 #else
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 #endif
-	// [rotateMe imageByRotating:[angle value]];
-	UIImage * rotated = [[UIImage alloc] initWithCGImage:[rotateMe imageByRotating:[angle value]]];
-	[rotatedImage setImage:rotated];
+    // [rotateMe imageByRotating:[angle value]];
+    UIImage * rotated = [[UIImage alloc] initWithCGImage:[rotateMe imageByRotating:[angle value]]];
+    [rotatedImage setImage:rotated];
 #if __has_feature(objc_arc) == 1
-	}
+    }
 #else
-	[rotated release];
-	[pool drain];
+    [rotated release];
+    [pool drain];
 #endif
 }
 
@@ -71,7 +71,7 @@
 
 #if __has_feature(objc_arc) != 1
 - (void)dealloc {
-	[rotateMe release];
+    [rotateMe release];
     [super dealloc];
 }
 #endif

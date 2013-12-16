@@ -10,7 +10,7 @@
 #import "ANImageBitmapRep.h"
 
 @interface Noise : UIViewController {
-	IBOutlet UIImageView * noiseView;
+    IBOutlet UIImageView * noiseView;
 }
 
 @end

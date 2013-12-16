@@ -10,11 +10,11 @@
 #import "ANImageBitmapRep.h"
 
 @interface ANInverterDemo : ANDemoView {
-	NSImageView * invertMe;
-	NSImage * inverted;
-	NSImage * regular;
-	BOOL isInverted;
-	NSButton * invertButton;
+    NSImageView * invertMe;
+    NSImage * inverted;
+    NSImage * regular;
+    BOOL isInverted;
+    NSButton * invertButton;
 }
 
 - (void)invertColors:(id)sender;

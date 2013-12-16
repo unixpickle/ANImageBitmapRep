@@ -11,9 +11,9 @@
 
 @interface ColorInverterView : UIView {
 #if __has_feature(objc_arc) == 1
-	__strong ANImageBitmapRep * image;
+    __strong ANImageBitmapRep * image;
 #else
-	ANImageBitmapRep * image;
+    ANImageBitmapRep * image;
 #endif
 }
 

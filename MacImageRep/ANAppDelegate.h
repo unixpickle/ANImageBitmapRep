@@ -12,10 +12,10 @@
 #import "ANNoiseDemo.h"
 
 @interface ANAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDelegate, NSTableViewDataSource> {
-	IBOutlet NSTableView * tableView;
-	IBOutlet NSView * contentView;
-	NSArray * demoObjects;
-	ANDemoView * currentDemo;
+    IBOutlet NSTableView * tableView;
+    IBOutlet NSView * contentView;
+    NSArray * demoObjects;
+    ANDemoView * currentDemo;
 }
 
 @property (assign) IBOutlet NSWindow * window;

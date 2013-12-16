@@ -10,7 +10,7 @@
 #import "BlurView.h"
 
 @interface Blur : UIViewController {
-	IBOutlet BlurView * blurView;
+    IBOutlet BlurView * blurView;
 }
 
 - (IBAction)progressChange:(id)sender;

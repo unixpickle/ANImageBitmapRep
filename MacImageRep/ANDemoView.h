@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 @interface ANDemoView : NSView {
-	
+    
 }
 
 + (NSString *)demoDisplayName;

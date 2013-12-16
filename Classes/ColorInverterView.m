@@ -21,8 +21,8 @@
 }
 
 - (IBAction)invert:(id)sender {
-	[image invertColors];
-	[self setNeedsDisplay];
+    [image invertColors];
+    [self setNeedsDisplay];
 }
 
 
@@ -30,19 +30,19 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code.
-	if (!image) {
+    if (!image) {
 #if __has_feature(objc_arc) == 1
-		image = [ANImageBitmapRep imageBitmapRepWithImage:[UIImage imageNamed:@"inverter.png"]];
+        image = [ANImageBitmapRep imageBitmapRepWithImage:[UIImage imageNamed:@"inverter.png"]];
 #else
-		image = [[ANImageBitmapRep imageBitmapRepWithImage:[UIImage imageNamed:@"inverter.png"]] retain];
+        image = [[ANImageBitmapRep imageBitmapRepWithImage:[UIImage imageNamed:@"inverter.png"]] retain];
 #endif
-	}
-	[(UIImage *)[image image] drawInRect:self.bounds];
+    }
+    [(UIImage *)[image image] drawInRect:self.bounds];
 }
 
 #if __has_feature(objc_arc) != 1
 - (void)dealloc {
-	if (image) [image release];
+    if (image) [image release];
     [super dealloc];
 }
 #endif

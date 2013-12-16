@@ -13,41 +13,41 @@
 @synthesize window = _window;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	demoObjects = [NSArray arrayWithObjects:[ANBlurDemo class], [ANInverterDemo class],
-				   [ANNoiseDemo class], nil];
-	[tableView setDelegate:self];
-	[tableView setDataSource:self];
+    demoObjects = [NSArray arrayWithObjects:[ANBlurDemo class], [ANInverterDemo class],
+                   [ANNoiseDemo class], nil];
+    [tableView setDelegate:self];
+    [tableView setDataSource:self];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
-	return YES;
+    return YES;
 }
 
 - (void)setSelectedView:(int)viewIndex {
-	if (currentDemo) {
-		[currentDemo removeFromSuperview];
-		currentDemo = nil;
-	}
-	if (viewIndex >= 0 && viewIndex < [demoObjects count]) {
-		Class demoClass = [demoObjects objectAtIndex:viewIndex];
-		ANDemoView * demo = [(ANDemoView *)[demoClass alloc] initWithFrame:contentView.bounds];
-		[contentView addSubview:demo];
-		currentDemo = demo;
-	}
+    if (currentDemo) {
+        [currentDemo removeFromSuperview];
+        currentDemo = nil;
+    }
+    if (viewIndex >= 0 && viewIndex < [demoObjects count]) {
+        Class demoClass = [demoObjects objectAtIndex:viewIndex];
+        ANDemoView * demo = [(ANDemoView *)[demoClass alloc] initWithFrame:contentView.bounds];
+        [contentView addSubview:demo];
+        currentDemo = demo;
+    }
 }
 
 #pragma mark Table View
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	return [[demoObjects objectAtIndex:row] demoDisplayName];
+    return [[demoObjects objectAtIndex:row] demoDisplayName];
 }
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	return [demoObjects count];
+    return [demoObjects count];
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)notification {
-	[self setSelectedView:(int)[tableView selectedRow]];
+    [self setSelectedView:(int)[tableView selectedRow]];
 }
 
 @end

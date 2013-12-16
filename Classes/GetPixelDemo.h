@@ -17,11 +17,11 @@
 
 @interface GetPixelDemo : UIView {
 #if __has_feature(objc_arc) == 1
-	__unsafe_unretained id<GetPixelDemoDelegate> delegate;
-	__strong ANImageBitmapRep * image;
+    __unsafe_unretained id<GetPixelDemoDelegate> delegate;
+    __strong ANImageBitmapRep * image;
 #else
-	ANImageBitmapRep * image;
-	id<GetPixelDemoDelegate> delegate;
+    ANImageBitmapRep * image;
+    id<GetPixelDemoDelegate> delegate;
 #endif
 }
 

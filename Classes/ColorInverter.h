@@ -10,7 +10,7 @@
 #import "ColorInverterView.h"
 
 @interface ColorInverter : UIViewController {
-	
+    
 }
 
 @end

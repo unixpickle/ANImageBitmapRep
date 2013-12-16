@@ -10,9 +10,9 @@
 #import "ANImageBitmapRep.h"
 
 @interface ANBlurDemo : ANDemoView {
-	NSImageView * blurView;
-	NSSlider * qualityLevel;
-	ANImageBitmapRep * original;
+    NSImageView * blurView;
+    NSSlider * qualityLevel;
+    ANImageBitmapRep * original;
 }
 
 - (void)setQuality:(float)percentage;

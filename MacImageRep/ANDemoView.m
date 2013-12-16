@@ -11,17 +11,17 @@
 @implementation ANDemoView
 
 + (NSString *)demoDisplayName {
-	return @"Untitled";
+    return @"Untitled";
 }
 
 - (BOOL)isFlipped {
-	return YES;
+    return YES;
 }
 
 - (void)drawRect:(NSRect)frame {
-	[super drawRect:frame];
-	[[NSColor colorWithCalibratedRed:0.9 green:0.92 blue:0.94 alpha:1] set];
-	NSRectFill(frame);
+    [super drawRect:frame];
+    [[NSColor colorWithCalibratedRed:0.9 green:0.92 blue:0.94 alpha:1] set];
+    NSRectFill(frame);
 }
 
 @end

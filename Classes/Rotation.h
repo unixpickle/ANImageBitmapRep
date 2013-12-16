@@ -10,12 +10,12 @@
 #import "ANImageBitmapRep.h"
 
 @interface Rotation : UIViewController {
-	IBOutlet UIImageView * rotatedImage;
-	IBOutlet UISlider * angle;
+    IBOutlet UIImageView * rotatedImage;
+    IBOutlet UISlider * angle;
 #if __has_feature(objc_arc) == 1
-	__strong ANImageBitmapRep * rotateMe;
+    __strong ANImageBitmapRep * rotateMe;
 #else
-	ANImageBitmapRep * rotateMe;
+    ANImageBitmapRep * rotateMe;
 #endif
 }
 

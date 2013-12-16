@@ -22,35 +22,35 @@
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	initial = [[touches anyObject] locationInView:self];
-	initial.y = self.frame.size.height - initial.y;
+    initial = [[touches anyObject] locationInView:self];
+    initial.y = self.frame.size.height - initial.y;
 }
 
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-	static CGFloat color[4] = {1, 0.5, 0.5, 1};
-	CGPoint points[2];
-	CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
-	if (!bitmap) {
+    static CGFloat color[4] = {1, 0.5, 0.5, 1};
+    CGPoint points[2];
+    CGColorSpaceRef space = CGColorSpaceCreateDeviceRGB();
+    if (!bitmap) {
 #if __has_feature(objc_arc) == 1
-		bitmap = [ANImageBitmapRep imageBitmapRepWithCGSize:[self frame].size];
+        bitmap = [ANImageBitmapRep imageBitmapRepWithCGSize:[self frame].size];
 #else
-		bitmap = [[ANImageBitmapRep imageBitmapRepWithCGSize:[self frame].size] retain];
+        bitmap = [[ANImageBitmapRep imageBitmapRepWithCGSize:[self frame].size] retain];
 #endif
-	}
-	CGPoint p = [[touches anyObject] locationInView:self];
-	p.y = self.frame.size.height - p.y;
-	points[0] = initial;
-	points[1] = p;
-	CGContextRef ctx = [bitmap context];
-	CGContextSetStrokeColorSpace(ctx, space);
-	CGContextSetStrokeColor(ctx, color);
-	CGContextSetLineWidth(ctx, 4);
-	CGContextSetLineCap(ctx, kCGLineCapRound);
-	CGContextStrokeLineSegments(ctx, points, 2);
-	initial = p;
-	CGColorSpaceRelease(space);
-	[bitmap setNeedsUpdate:YES];
-	[self setNeedsDisplay];
+    }
+    CGPoint p = [[touches anyObject] locationInView:self];
+    p.y = self.frame.size.height - p.y;
+    points[0] = initial;
+    points[1] = p;
+    CGContextRef ctx = [bitmap context];
+    CGContextSetStrokeColorSpace(ctx, space);
+    CGContextSetStrokeColor(ctx, color);
+    CGContextSetLineWidth(ctx, 4);
+    CGContextSetLineCap(ctx, kCGLineCapRound);
+    CGContextStrokeLineSegments(ctx, points, 2);
+    initial = p;
+    CGColorSpaceRelease(space);
+    [bitmap setNeedsUpdate:YES];
+    [self setNeedsDisplay];
 }
 
 
@@ -58,14 +58,14 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code.
-	if (bitmap) {
-		[[bitmap image] drawInRect:self.bounds];
-	}
+    if (bitmap) {
+        [[bitmap image] drawInRect:self.bounds];
+    }
 }
 
 #if __has_feature(objc_arc) != 1
 - (void)dealloc {
-	[bitmap release];
+    [bitmap release];
     [super dealloc];
 }
 #endif

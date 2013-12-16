@@ -26,18 +26,18 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.title = @"Noise";
-	BMPoint noiseSize = BMPointFromSize([noiseView frame].size);
-	ANImageBitmapRep * irep = [[ANImageBitmapRep alloc] initWithSize:noiseSize];
-	for (int y = 0; y < noiseSize.y; y++) {
-		for (int x = 0; x < noiseSize.x; x++) {
-			CGFloat value = ((CGFloat)(arc4random() % 20) + 90.0f) / 255.0f;
-			[irep setPixel:BMPixelMake(value, value, value, 1) atPoint:BMPointMake(x, y)];
-		}
-	}
-	[noiseView setImage:[irep image]];
+    self.title = @"Noise";
+    BMPoint noiseSize = BMPointFromSize([noiseView frame].size);
+    ANImageBitmapRep * irep = [[ANImageBitmapRep alloc] initWithSize:noiseSize];
+    for (int y = 0; y < noiseSize.y; y++) {
+        for (int x = 0; x < noiseSize.x; x++) {
+            CGFloat value = ((CGFloat)(arc4random() % 20) + 90.0f) / 255.0f;
+            [irep setPixel:BMPixelMake(value, value, value, 1) atPoint:BMPointMake(x, y)];
+        }
+    }
+    [noiseView setImage:[irep image]];
 #if __has_feature(objc_arc) != 1
-	[irep release];
+    [irep release];
 #endif
 }
 

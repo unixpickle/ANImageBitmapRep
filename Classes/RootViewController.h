@@ -16,9 +16,9 @@
 
 @interface RootViewController : UITableViewController {
 #if __has_feature(objc_arc) == 1
-	__strong NSArray * views;
+    __strong NSArray * views;
 #else
-	NSArray * views;
+    NSArray * views;
 #endif
 }
 

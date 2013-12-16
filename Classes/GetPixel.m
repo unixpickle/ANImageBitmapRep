@@ -19,8 +19,8 @@
 
 #if __has_feature(objc_arc) != 1
 - (void)dealloc {
-	[demoView release];
-	[pxlView release];
+    [demoView release];
+    [pxlView release];
     [super dealloc];
 }
 #endif
@@ -45,29 +45,29 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	UIImage * theImage = [UIImage imageNamed:@"wheel.png"];
-	demoView = [[GetPixelDemo alloc] initWithFrame:CGRectMake(10, 100, 300, 300) image:[ANImageBitmapRep imageBitmapRepWithImage:theImage]];
-	pxlView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 300, 80)];
-	[pxlView setBackgroundColor:[UIColor blackColor]];
-	[self.view setBackgroundColor:[UIColor blackColor]];
-	[self.view addSubview:demoView];
-	[self.view addSubview:pxlView];
-	[demoView setDelegate:self];
-	[self setTitle:@"Get Pixel"];
+    UIImage * theImage = [UIImage imageNamed:@"wheel.png"];
+    demoView = [[GetPixelDemo alloc] initWithFrame:CGRectMake(10, 100, 300, 300) image:[ANImageBitmapRep imageBitmapRepWithImage:theImage]];
+    pxlView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 300, 80)];
+    [pxlView setBackgroundColor:[UIColor blackColor]];
+    [self.view setBackgroundColor:[UIColor blackColor]];
+    [self.view addSubview:demoView];
+    [self.view addSubview:pxlView];
+    [demoView setDelegate:self];
+    [self setTitle:@"Get Pixel"];
 }
 
 - (void)pixelDemoGotPixel:(BMPixel)pixel {
 #if __has_feature(objc_arc) == 1
-	@autoreleasepool {
+    @autoreleasepool {
 #else
-	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 #endif
-	UIColor * color = UIColorFromBMPixel(pixel);
-	[pxlView setBackgroundColor:color];
+    UIColor * color = UIColorFromBMPixel(pixel);
+    [pxlView setBackgroundColor:color];
 #if __has_feature(objc_arc) == 1
-	}
+    }
 #else
-	[pool drain];
+    [pool drain];
 #endif
 }
 

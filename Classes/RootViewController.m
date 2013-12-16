@@ -19,22 +19,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 #if __has_feature(objc_arc) == 1
-	views = [NSArray arrayWithObjects:NSStringFromClass([ColorInverter class]),
-			 NSStringFromClass([Blur class]),
-			 NSStringFromClass([Noise class]), 
-			 NSStringFromClass([Draw class]),
-			 NSStringFromClass([Rotation class]),
-			 NSStringFromClass([GetPixel class]), nil];
+    views = [NSArray arrayWithObjects:NSStringFromClass([ColorInverter class]),
+             NSStringFromClass([Blur class]),
+             NSStringFromClass([Noise class]), 
+             NSStringFromClass([Draw class]),
+             NSStringFromClass([Rotation class]),
+             NSStringFromClass([GetPixel class]), nil];
 #else 
-	views = [[NSArray arrayWithObjects:NSStringFromClass([ColorInverter class]),
-			  NSStringFromClass([Blur class]),
-			  NSStringFromClass([Noise class]), 
-			  NSStringFromClass([Draw class]),
-			  NSStringFromClass([Rotation class]),
-			  NSStringFromClass([GetPixel class]), nil] retain];
+    views = [[NSArray arrayWithObjects:NSStringFromClass([ColorInverter class]),
+              NSStringFromClass([Blur class]),
+              NSStringFromClass([Noise class]), 
+              NSStringFromClass([Draw class]),
+              NSStringFromClass([Rotation class]),
+              NSStringFromClass([GetPixel class]), nil] retain];
 #endif
-	self.title = @"Demos";
-	
+    self.title = @"Demos";
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -52,20 +52,20 @@
 */
 /*
 - (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
+    [super viewWillDisappear:animated];
 }
 */
 /*
 - (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
+    [super viewDidDisappear:animated];
 }
 */
 
 /*
  // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    // Return YES for supported orientations.
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
  */
 
@@ -74,7 +74,7 @@
 #pragma mark Table view data source
 
 - (CGFloat)tableView:(UITableView *)tv heightForRowAtIndexPath:(NSIndexPath *)p {
-	return 80;
+    return 80;
 }
 
 // Customize the number of sections in the table view.
@@ -97,16 +97,16 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
 #if __has_feature(objc_arc) == 1
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 #else
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 #endif
     }
-	
-	cell.textLabel.text = [views objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [views objectAtIndex:indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
-	
-	// Configure the cell.
+    
+    // Configure the cell.
 
     return cell;
 }
@@ -157,9 +157,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UIViewController * vc = [[NSClassFromString([views objectAtIndex:indexPath.row]) alloc] initWithNibName:nil bundle:nil];
-	[self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:YES];
 #if __has_feature(objc_arc) != 1
-	[vc release];
+    [vc release];
 #endif
 }
 
@@ -181,7 +181,7 @@
 
 #if __has_feature(objc_arc) != 1
 - (void)dealloc {
-	[views release];
+    [views release];
     [super dealloc];
 }
 #endif
