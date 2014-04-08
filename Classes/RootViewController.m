@@ -105,7 +105,8 @@
     
     cell.textLabel.text = [views objectAtIndex:indexPath.row];
     cell.textLabel.textColor = [UIColor whiteColor];
-    
+    cell.backgroundColor = [UIColor blackColor];
+  
     // Configure the cell.
 
     return cell;
