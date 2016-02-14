@@ -36,7 +36,7 @@ Let's say we get a pixel, and we want to set the red value to be 100%.  We can c
     [image setPixel:pixel atPoint:BMPointMake(0, 0)];
 
 Once you are finished interacting with bitmap data, you can get a UIImage from a bitmap with the <tt>-image</tt> method:
-    
+
     UIImage * anImage = [image image];
 
 How about scaling, cropping, and resizing you might ask?  ANImageBitmapRep provides all of those features as easy-to-use methods.  The <tt>-setSize:</tt>, <tt>-setSizeFittingFrame:</tt>, and <tt>-setSizeFillingFrame:</tt> methods are good for all kinds of resizing and scaling.  For instance, if we have an ANImageBitmapRep that is 100x100 pixels large, and we want to stretch it to 300x200, we could do:
@@ -64,3 +64,7 @@ Every time I make a new app that requires something new from ANImageBitmapRep, I
 ## Good Examples?
 
 The Xcode project included with this code is a demo of what ANImageBitmapRep is capable of.  It doesn't include a demo of all the features, but it shows off the simpler things that you can do with it.  I will definitely be adding more demos to this project in the future, so stay tuned!
+
+# License
+
+This is under the [BSD 2-clause license](LICENSE).
